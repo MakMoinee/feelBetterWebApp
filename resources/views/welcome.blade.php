@@ -3,474 +3,807 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Feel Better</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
+    <!-- Google Web Fonts -->
     <link href="/logo.png" rel="icon">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- /libraries Stylesheet -->
+    <link href="/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-    <!--banner-->
-    <section id="banner" class="banner">
-        <div class="bg-color">
-            <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="container">
-                    <div class="col-md-12">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="/"><img src="/logo.png" class="img-responsive"
-                                    style="width: 50px !important; height: 50px; margin-top: -16px;"></a>
-                        </div>
-                        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="#banner">Home</a></li>
-                                <li class=""><a href="#service">Services</a></li>
-                                <li class=""><a href="#about">About</a></li>
-                                <li class=""><a href="#testimonial">Testimonial</a></li>
-                                <li class=""><a href="#contact">Contact</a></li>
-                                <li class=""><a href="/booking">Booking</a></li>
-                                <li class="">
-                                    <a>Login</a>
-                                </li>
-                                <li class="">
-                                    <a>Signup</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <div class="container">
-                <div class="row">
-                    <div class="banner-info">
-                        <div class="banner-logo text-center">
-                            <img src="logo.png" style="height: 150px;" class="img-responsive">
-                        </div>
-                        <div class="banner-text text-center">
-                            <h1 class="white">Feel Better</h1>
-                            <p>Your Number 1 Mental Health Tracker</p>
-                            <a href="#contact" class="btn btn-appoint">Make an Appointment.</a>
-                        </div>
-                        <div class="overlay-detail text-center">
-                            <a href="#service"><i class="fa fa-angle-down"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/ banner-->
-    <!--service-->
-    <section id="service" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <h2 class="ser-title">Our Service</h2>
-                    <hr class="botm-line">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris cillum.</p>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="service-info">
-                        <div class="icon">
-                            <i class="fa fa-stethoscope"></i>
-                        </div>
-                        <div class="icon-info">
-                            <h4>24 Hour Support</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <div class="service-info">
-                        <div class="icon">
-                            <i class="fa fa-ambulance"></i>
-                        </div>
-                        <div class="icon-info">
-                            <h4>Emergency Services</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="service-info">
-                        <div class="icon">
-                            <i class="fa fa-user-md"></i>
-                        </div>
-                        <div class="icon-info">
-                            <h4>Medical Counseling</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <div class="service-info">
-                        <div class="icon">
-                            <i class="fa fa-medkit"></i>
-                        </div>
-                        <div class="icon-info">
-                            <h4>Premium Healthcare</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/ service-->
-    <!--cta-->
-    <section id="cta-1" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="schedule-tab">
-                    <div class="col-md-4 col-sm-4 bor-left">
-                        <div class="mt-boxy-color"></div>
-                        <div class="medi-info">
-                            <h3>Emergency Case</h3>
-                            <p>I am text block. Edit this text from Appearance / Customize / Homepage header columns.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                            <a href="#" class="medi-info-btn">READ MORE</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="medi-info">
-                            <h3>Emergency Case</h3>
-                            <p>I am text block. Edit this text from Appearance / Customize / Homepage header columns.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                            <a href="#" class="medi-info-btn">READ MORE</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 mt-boxy-3">
-                        <div class="mt-boxy-color"></div>
-                        <div class="time-info">
-                            <h3>Opening Hours</h3>
-                            <table style="margin: 8px 0px 0px;" border="1">
-                                <tbody>
-                                    <tr>
-                                        <td>Monday - Friday</td>
-                                        <td>8.00 - 17.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Saturday</td>
-                                        <td>9.30 - 17.30</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sunday</td>
-                                        <td>9.30 - 15.00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--cta-->
-    <!--about-->
-    <section id="about" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-4 col-xs-12">
-                    <div class="section-title">
-                        <h2 class="head-title lg-line">Feel Better <br>Ultimate Dream</h2>
-                        <hr class="botm-line">
-                        <p class="sec-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua..</p>
-                        <a href="" style="color: #0cb8b6; padding-top:10px;">Know more..</a>
-                    </div>
-                </div>
-                <div class="col-md-9 col-sm-8 col-xs-12">
-                    <div style="visibility: visible;" class="col-sm-9 more-features-box">
-                        <div class="more-features-box-text">
-                            <div class="more-features-box-text-icon"> <i class="fa fa-angle-right"
-                                    aria-hidden="true"></i> </div>
-                            <div class="more-features-box-text-description">
-                                <h3>It's something important you want to know.</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et. Ut wisi enim ad minim veniam, quis nostrud.</p>
-                            </div>
-                        </div>
-                        <div class="more-features-box-text">
-                            <div class="more-features-box-text-icon"> <i class="fa fa-angle-right"
-                                    aria-hidden="true"></i> </div>
-                            <div class="more-features-box-text-description">
-                                <h3>It's something important you want to know.</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et. Ut wisi enim ad minim veniam, quis nostrud.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/ about-->
-    <!--doctor team-->
-    <section id="doctor-team" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="ser-title">Meet Our Doctors!</h2>
-                    <hr class="botm-line">
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/doctor1.jpg" alt="..." class="team-img">
-                        <div class="caption">
-                            <h3>Jessica Wally</h3>
-                            <p>Doctor</p>
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/doctor2.jpg" alt="..." class="team-img">
-                        <div class="caption">
-                            <h3>Iai Donas</h3>
-                            <p>Doctor</p>
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/doctor3.jpg" alt="..." class="team-img">
-                        <div class="caption">
-                            <h3>Amanda Denyl</h3>
-                            <p>Doctor</p>
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/doctor4.jpg" alt="..." class="team-img">
-                        <div class="caption">
-                            <h3>Jason Davis</h3>
-                            <p>Doctor</p>
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/ doctor team-->
-    <!--testimonial-->
-    <section id="testimonial" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="ser-title">see what patients are saying?</h2>
-                    <hr class="botm-line">
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="testi-details">
-                        <!-- Paragraph -->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                    </div>
-                    <div class="testi-info">
-                        <!-- User Image -->
-                        <a href="#"><img src="img/thumb.png" alt="" class="img-responsive"></a>
-                        <!-- User Name -->
-                        <h3>Alex<span>Texas</span></h3>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="testi-details">
-                        <!-- Paragraph -->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                    </div>
-                    <div class="testi-info">
-                        <!-- User Image -->
-                        <a href="#"><img src="img/thumb.png" alt="" class="img-responsive"></a>
-                        <!-- User Name -->
-                        <h3>Alex<span>Texas</span></h3>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="testi-details">
-                        <!-- Paragraph -->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                    </div>
-                    <div class="testi-info">
-                        <!-- User Image -->
-                        <a href="#"><img src="img/thumb.png" alt="" class="img-responsive"></a>
-                        <!-- User Name -->
-                        <h3>Alex<span>Texas</span></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/ testimonial-->
-    <!--cta 2-->
-    <section id="cta-2" class="section-padding">
-        <div class="container">
-            <div class=" row">
-                <div class="col-md-2"></div>
-                <div class="text-right-md col-md-4 col-sm-4">
-                    <h2 class="section-title white lg-line">« A few words<br> about us »</h2>
-                </div>
-                <div class="col-md-4 col-sm-5">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a typek
-                    <p class="text-right text-primary"><i>— Medilap Healthcare</i></p>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-        </div>
-    </section>
-    <!--cta-->
-    <!--contact-->
-    <section id="contact" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="ser-title">Contact us</h2>
-                    <hr class="botm-line">
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <h3>Contact Info</h3>
-                    <div class="space"></div>
-                    <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i>321 Awesome Street<br> New York, NY 17022
-                    </p>
-                    <div class="space"></div>
-                    <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>info@companyname.com</p>
-                    <div class="space"></div>
-                    <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>+1 800 123 1234</p>
-                </div>
-                <div class="col-md-8 col-sm-8 marb20">
-                    <div class="contact-info">
-                        <h3 class="cnt-ttl">Having Any Query! Or Book an appointment</h3>
-                        <div class="space"></div>
-                        <div id="sendmessage">Your message has been sent. Thank you!</div>
-                        <div id="errormessage"></div>
-                        <form action="" method="post" role="form" class="contactForm">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control br-radius-zero"
-                                    id="name" placeholder="Your Name" data-rule="minlen:4"
-                                    data-msg="Please enter at least 4 chars" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control br-radius-zero" name="email"
-                                    id="email" placeholder="Your Email" data-rule="email"
-                                    data-msg="Please enter a valid email" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control br-radius-zero" name="subject"
-                                    id="subject" placeholder="Subject" data-rule="minlen:4"
-                                    data-msg="Please enter at least 8 chars of subject" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control br-radius-zero" name="message" rows="5" data-rule="required"
-                                    data-msg="Please write something for us" placeholder="Message"></textarea>
-                                <div class="validation"></div>
-                            </div>
+<body>
 
-                            <div class="form-action">
-                                <button type="submit" class="btn btn-form">Send Message</button>
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+        <div class="row gx-0 align-items-center" style="height: 45px;">
+            <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                <div class="d-flex flex-wrap">
+                    <a href="#" class="text-light me-4"><i
+                            class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                    <a href="#" class="text-light me-4"><i
+                            class="fas fa-phone-alt text-primary me-2"></i>+01234567890</a>
+                    <a href="#" class="text-light me-0"><i
+                            class="fas fa-envelope text-primary me-2"></i>Example@gmail.com</a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-flex align-items-center justify-content-end">
+                    <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-0"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="text-primary m-0"><img src="/logo.png" alt="Logo">Feel Better</h1>
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="appointment.html" class="dropdown-item">Appointment</a>
+                            <a href="feature.html" class="dropdown-item">Features</a>
+                            <a href="blog.html" class="dropdown-item">Our Blog</a>
+                            <a href="team.html" class="dropdown-item">Our Team</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Page</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- Carousel Start -->
+        <div class="header-carousel owl-carousel">
+            <div class="header-carousel-item">
+                <img src="img/carousel-1.jpg" class="img-fluid w-100" alt="Image">
+                <div class="carousel-caption">
+                    <div class="carousel-caption-content p-3">
+                        <h5 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Physiotherapy
+                            Center</h5>
+                        <h1 class="display-1 text-capitalize text-white mb-4">Best Solution For Painful Life</h1>
+                        <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        </p>
+                        <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="#">Book
+                            Appointment</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-carousel-item">
+                <img src="img/carousel-2.jpg" class="img-fluid w-100" alt="Image">
+                <div class="carousel-caption">
+                    <div class="carousel-caption-content p-3">
+                        <h5 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Physiotherapy
+                            Center</h5>
+                        <h1 class="display-1 text-capitalize text-white mb-4">Best Solution For Painful Life</h1>
+                        <p class="mb-5 fs-5 animated slideInDown">Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                            1500s,
+                        </p>
+                        <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="#">Book
+                            Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+    </div>
+    <!-- Navbar & Hero End -->
+
+
+
+
+    <!-- About Start -->
+    <div class="container-fluid about bg-light py-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="about-img pb-5 ps-5">
+                        <img src="img/about-1.jpg" class="img-fluid rounded w-100" style="object-fit: cover;"
+                            alt="Image">
+                        <div class="about-img-inner">
+                            <img src="img/about-2.jpg" class="img-fluid rounded-circle w-100 h-100" alt="Image">
+                        </div>
+                        <div class="about-experience">Years Of Experience</div>
+                    </div>
+                </div>
+                <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s">
+                    <div class="section-title text-start mb-5">
+                        <h4 class="sub-title pe-3 mb-0">About Us</h4>
+                        <h1 class="display-3 mb-4">We are Ready to Help You.</h1>
+                        <p class="mb-4" style="text-align: justify">At Feel Better, we are committed to improving mental well-being through
+                            accessible, user-friendly technology. Our mission is to provide individuals with the tools,
+                            resources, and support they need to navigate mental health challenges and foster a sense of
+                            balance and peace in their lives.
+
+                            Feel Better is designed to be a safe space where users can explore various mental health
+                            resources, including mood tracking, personalized and coping strategies.
+                            Whether you’re struggling with stress, Feel Better offers
+                            evidence-based approaches to help you understand and manage your emotions better.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Feature Start -->
+    <div class="container-fluid feature py-5">
+        <div class="container py-5">
+            <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="sub-style">
+                    <h4 class="sub-title px-3 mb-0">Why Choose Us</h4>
+                </div>
+                <h1 class="display-3 mb-4">Why Choose Us? Get Your Life Style Back</h1>
+                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at
+                    atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam
+                    necessitatibus saepe in ab? Repellat!</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row-cols-1 feature-item p-4">
+                        <div class="col-12">
+                            <div class="feature-icon mb-4">
+                                <div class="p-3 d-inline-flex bg-white rounded">
+                                    <i class="fas fa-diagnoses fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-4">Licensed Therapist</h5>
+                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
+                                    accusamus,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="row-cols-1 feature-item p-4">
+                        <div class="col-12">
+                            <div class="feature-icon mb-4">
+                                <div class="p-3 d-inline-flex bg-white rounded">
+                                    <i class="fas fa-briefcase-medical fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-4">Personalized Treatment</h5>
+                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
+                                    accusamus,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="row-cols-1 feature-item p-4">
+                        <div class="col-12">
+                            <div class="feature-icon mb-4">
+                                <div class="p-3 d-inline-flex bg-white rounded">
+                                    <i class="fas fa-hospital-user fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-4">Therapy Goals</h5>
+                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
+                                    accusamus,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="row-cols-1 feature-item p-4">
+                        <div class="col-12">
+                            <div class="feature-icon mb-4">
+                                <div class="p-3 d-inline-flex bg-white rounded">
+                                    <i class="fas fa-users fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-4">Practitioners Network</h5>
+                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
+                                    accusamus,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row-cols-1 feature-item p-4">
+                        <div class="col-12">
+                            <div class="feature-icon mb-4">
+                                <div class="p-3 d-inline-flex bg-white rounded">
+                                    <i class="fas fa-spa fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-4">Comfortable Center</h5>
+                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
+                                    accusamus,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="row-cols-1 feature-item p-4">
+                        <div class="col-12">
+                            <div class="feature-icon mb-4">
+                                <div class="p-3 d-inline-flex bg-white rounded">
+                                    <i class="fas fa-heart fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-4">Experienced Stuff</h5>
+                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
+                                    accusamus,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="row-cols-1 feature-item p-4">
+                        <div class="col-12">
+                            <div class="feature-icon mb-4">
+                                <div class="p-3 d-inline-flex bg-white rounded">
+                                    <i class="fab fa-pied-piper fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-4">Therapy Goals</h5>
+                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
+                                    accusamus,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="row-cols-1 feature-item p-4">
+                        <div class="col-12">
+                            <div class="feature-icon mb-4">
+                                <div class="p-3 d-inline-flex bg-white rounded">
+                                    <i class="fas fa-user-md fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="feature-content d-flex flex-column">
+                                <h5 class="mb-4">Licensed Therapist</h5>
+                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
+                                    accusamus,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
+                    <a href="#" class="btn btn-primary rounded-pill text-white py-3 px-5">More Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+
+
+    <!-- Book Appointment Start -->
+    <div class="container-fluid appointment py-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2">
+                    <div class="section-title text-start">
+                        <h4 class="sub-title pe-3 mb-0">Solutions To Your Pain</h4>
+                        <h1 class="display-4 mb-4">Best Quality Services With Minimal Pain Rate</h1>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti
+                            amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia
+                            voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p>
+                        <div class="row g-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex flex-column h-100">
+                                    <div class="mb-4">
+                                        <h5 class="mb-3"><i class="fa fa-check text-primary me-2"></i> Body
+                                            Relaxation</h5>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
+                                            deserunt qui cupiditate veritatis enim ducimus.</p>
+                                    </div>
+                                    <div class="mb-4">
+                                        <h5 class="mb-3"><i class="fa fa-check text-primary me-2"></i> Body
+                                            Relaxation</h5>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
+                                            deserunt qui cupiditate veritatis enim ducimus.</p>
+                                    </div>
+                                    <div class="text-start mb-4">
+                                        <a href="#"
+                                            class="btn btn-primary rounded-pill text-white py-3 px-5">More Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="video h-100">
+                                    <img src="img/video-img.jpg" class="img-fluid rounded w-100 h-100"
+                                        style="object-fit: cover;" alt="">
+                                    <button type="button" class="btn btn-play" data-bs-toggle="modal"
+                                        data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
+                                        data-bs-target="#videoModal">
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
+                    <div class="appointment-form rounded p-5">
+                        <p class="fs-4 text-uppercase text-primary">Get In Touch</p>
+                        <h1 class="display-5 mb-4">Get Appointment</h1>
+                        <form>
+                            <div class="row gy-3 gx-4">
+                                <div class="col-xl-6">
+                                    <input type="text"
+                                        class="form-control py-3 border-primary bg-transparent text-white"
+                                        placeholder="First Name">
+                                </div>
+                                <div class="col-xl-6">
+                                    <input type="email"
+                                        class="form-control py-3 border-primary bg-transparent text-white"
+                                        placeholder="Email">
+                                </div>
+                                <div class="col-xl-6">
+                                    <input type="phone" class="form-control py-3 border-primary bg-transparent"
+                                        placeholder="Phone">
+                                </div>
+                                <div class="col-xl-6">
+                                    <select class="form-select py-3 border-primary bg-transparent"
+                                        aria-label="Default select example">
+                                        <option selected>Your Gender</option>
+                                        <option value="1">Male</option>
+                                        <option value="2">FeMale</option>
+                                        <option value="3">Others</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-6">
+                                    <input type="date" class="form-control py-3 border-primary bg-transparent">
+                                </div>
+                                <div class="col-xl-6">
+                                    <select class="form-select py-3 border-primary bg-transparent"
+                                        aria-label="Default select example">
+                                        <option selected>Department</option>
+                                        <option value="1">Physiotherapy</option>
+                                        <option value="2">Physical Helth</option>
+                                        <option value="2">Treatments</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control border-primary bg-transparent text-white" name="text" id="area-text" cols="30"
+                                        rows="5" placeholder="Write Comments"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-primary text-white w-100 py-3 px-5">SUBMIT
+                                        NOW</button>
+                                </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!--/ contact-->
-    <!--footer-->
-    <footer id="footer">
-        <div class="top-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4 marb20">
-                        <div class="ftr-tle">
-                            <h4 class="white no-padding">About Us</h4>
-                        </div>
-                        <div class="info-sec">
-                            <p>Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis
-                                parturient.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 marb20">
-                        <div class="ftr-tle">
-                            <h4 class="white no-padding">Quick Links</h4>
-                        </div>
-                        <div class="info-sec">
-                            <ul class="quick-info">
-                                <li><a href="index.html"><i class="fa fa-circle"></i>Home</a></li>
-                                <li><a href="#service"><i class="fa fa-circle"></i>Service</a></li>
-                                <li><a href="#contact"><i class="fa fa-circle"></i>Appointment</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 marb20">
-                        <div class="ftr-tle">
-                            <h4 class="white no-padding">Follow us</h4>
-                        </div>
-                        <div class="info-sec">
-                            <ul class="social-icon">
-                                <li class="bglight-blue"><i class="fa fa-facebook"></i></li>
-                                <li class="bgred"><i class="fa fa-google-plus"></i></li>
-                                <li class="bgdark-blue"><i class="fa fa-linkedin"></i></li>
-                                <li class="bglight-blue"><i class="fa fa-twitter"></i></li>
-                            </ul>
-                        </div>
+    </div>
+    <!-- Modal Video -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 16:9 aspect ratio -->
+                    <div class="ratio ratio-16x9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
+                            allowscriptaccess="always" allow="autoplay"></iframe>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer-line">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        © Copyright Feel Better. All Rights Reserved
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--/ footer-->
+    </div>
+    <!-- Book Appointment End -->
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="contactform/contactform.js"></script>
+
+    <!-- Team Start -->
+    <div class="container-fluid team py-5">
+        <div class="container py-5">
+            <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="sub-style">
+                    <h4 class="sub-title px-3 mb-0">Meet our team</h4>
+                </div>
+                <h1 class="display-3 mb-4">Physiotherapy Services from Professional Therapist</h1>
+                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at
+                    atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam
+                    necessitatibus saepe in ab? Repellat!</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item rounded">
+                        <div class="team-img rounded-top h-100">
+                            <img src="img/team-1.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <div class="team-icon d-flex justify-content-center">
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
+                            <h5>Full Name</h5>
+                            <p class="mb-0">Message Physio Therapist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item rounded">
+                        <div class="team-img rounded-top h-100">
+                            <img src="img/team-2.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <div class="team-icon d-flex justify-content-center">
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
+                            <h5>Full Name</h5>
+                            <p class="mb-0">Rehabilitation Therapist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item rounded">
+                        <div class="team-img rounded-top h-100">
+                            <img src="img/team-3.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <div class="team-icon d-flex justify-content-center">
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
+                            <h5>Full Name</h5>
+                            <p class="mb-0">Doctor of Physical therapy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item rounded">
+                        <div class="team-img rounded-top h-100">
+                            <img src="img/team-4.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <div class="team-icon d-flex justify-content-center">
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
+                            <h5>Full Name</h5>
+                            <p class="mb-0">Doctor of Physical therapy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid testimonial py-5 wow zoomInDown" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title mb-5">
+                <div class="sub-style">
+                    <h4 class="sub-title text-white px-3 mb-0">Testimonial</h4>
+                </div>
+                <h1 class="display-3 mb-4">What Clients are Say</h1>
+            </div>
+            <div class="testimonial-carousel owl-carousel">
+                <div class="testimonial-item">
+                    <div class="testimonial-inner p-5">
+                        <div class="testimonial-inner-img mb-4">
+                            <img src="img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
+                        </div>
+                        <p class="text-white fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
+                            nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed
+                            voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
+                        </p>
+                        <div class="text-center">
+                            <h5 class="mb-2">John Abraham</h5>
+                            <p class="mb-2 text-white-50">New York, USA</p>
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-inner p-5">
+                        <div class="testimonial-inner-img mb-4">
+                            <img src="img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
+                        </div>
+                        <p class="text-white fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
+                            nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed
+                            voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
+                        </p>
+                        <div class="text-center">
+                            <h5 class="mb-2">John Abraham</h5>
+                            <p class="mb-2 text-white-50">New York, USA</p>
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-inner p-5">
+                        <div class="testimonial-inner-img mb-4">
+                            <img src="img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
+                        </div>
+                        <p class="text-white fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
+                            nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed
+                            voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
+                        </p>
+                        <div class="text-center">
+                            <h5 class="mb-2">John Abraham</h5>
+                            <p class="mb-2 text-white-50">New York, USA</p>
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid blog py-5">
+        <div class="container py-5">
+            <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="sub-style">
+                    <h4 class="sub-title px-3 mb-0">Our Blog</h4>
+                </div>
+                <h1 class="display-3 mb-4">Excellent Facility and High Quality Therapy</h1>
+                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at
+                    atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam
+                    necessitatibus saepe in ab? Repellat!</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="blog-item rounded">
+                        <div class="blog-img">
+                            <img src="img/blog-1.jpg" class="img-fluid w-100" alt="Image">
+                        </div>
+                        <div class="blog-centent p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <p class="mb-0 text-muted"><i class="fa fa-calendar-alt text-primary"></i> 01 Jan 2045
+                                </p>
+                                <a href="#" class="text-muted"><span
+                                        class="fa fa-comments text-primary"></span> 3 Comments</a>
+                            </div>
+                            <a href="#" class="h4">Remove back Pain While Working on o physio</a>
+                            <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium hic
+                                consequatur beatae architecto,</p>
+                            <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-1">Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="blog-item rounded">
+                        <div class="blog-img">
+                            <img src="img/blog-2.jpg" class="img-fluid w-100" alt="Image">
+                        </div>
+                        <div class="blog-centent p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <p class="mb-0 text-muted"><i class="fa fa-calendar-alt text-primary"></i> 01 Jan 2045
+                                </p>
+                                <a href="#" class="text-muted"><span
+                                        class="fa fa-comments text-primary"></span> 3 Comments</a>
+                            </div>
+                            <a href="#" class="h4">Benefits of a weekly physiotherapy session</a>
+                            <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium hic
+                                consequatur beatae architecto,</p>
+                            <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-1">Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="blog-item rounded">
+                        <div class="blog-img">
+                            <img src="img/blog-3.jpg" class="img-fluid w-100" alt="Image">
+                        </div>
+                        <div class="blog-centent p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <p class="mb-0 text-muted"><i class="fa fa-calendar-alt text-primary"></i> 01 Jan 2045
+                                </p>
+                                <a href="#" class="text-muted"><span
+                                        class="fa fa-comments text-primary"></span> 3 Comments</a>
+                            </div>
+                            <a href="#" class="h4">Regular excercise can slow ageing process</a>
+                            <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium hic
+                                consequatur beatae architecto,</p>
+                            <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-1">Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4"><i class="fas fa-star-of-life me-3"></i>Terapia</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolorem impedit eos autem
+                            dolores laudantium quia, qui similique
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-share fa-2x text-white me-2"></i>
+                            <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href=""><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href=""><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href=""><i
+                                    class="fab fa-instagram"></i></a>
+                            <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href=""><i
+                                    class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Quick Links</h4>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> About Us</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Contact Us</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Our Blog & News</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Our Team</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Terapia Services</h4>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> All Services</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Physiotherapy</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Diagnostics</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Manual Therapy</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Massage Therapy</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Rehabilitation</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Contact Info</h4>
+                        <a href=""><i class="fa fa-map-marker-alt me-2"></i> 123 Street, New York, USA</a>
+                        <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
+                        <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
+                        <a href=""><i class="fas fa-phone me-2"></i> +012 345 67890</a>
+                        <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-white"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Your
+                            Site Name</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end text-white">
+                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a
+                        class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+    <!-- JavaScript /libraries -->
+    <script src="https://ajax.googleapis.com/ajax//libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/wow/wow.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/waypoints/waypoints.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
 
 </body>
 
