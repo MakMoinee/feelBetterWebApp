@@ -77,21 +77,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="appointment.html" class="dropdown-item">Appointment</a>
-                            <a href="feature.html" class="dropdown-item">Features</a>
-                            <a href="blog.html" class="dropdown-item">Our Blog</a>
-                            <a href="team.html" class="dropdown-item">Our Team</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                    <a href="/" class="nav-item nav-link active">Home</a>
+                    <a href="/#about" class="nav-item nav-link">About</a>
+                    <a href="/#assess" class="nav-item nav-link">Assesment</a>
                 </div>
             </div>
         </nav>
@@ -139,7 +127,7 @@
 
 
     <!-- About Start -->
-    <div class="container-fluid about bg-light py-5">
+    <div id="about" class="container-fluid about bg-light py-5">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-5 wow fadeInLeft" data-wow-delay="0.2s">
@@ -156,7 +144,8 @@
                     <div class="section-title text-start mb-5">
                         <h4 class="sub-title pe-3 mb-0">About Us</h4>
                         <h1 class="display-3 mb-4">We are Ready to Help You.</h1>
-                        <p class="mb-4" style="text-align: justify">At Feel Better, we are committed to improving mental well-being through
+                        <p class="mb-4" style="text-align: justify">At Feel Better, we are committed to improving
+                            mental well-being through
                             accessible, user-friendly technology. Our mission is to provide individuals with the tools,
                             resources, and support they need to navigate mental health challenges and foster a sense of
                             balance and peace in their lives.
@@ -173,250 +162,47 @@
     <!-- About End -->
 
     <!-- Feature Start -->
-    <div class="container-fluid feature py-5">
-        <div class="container py-5">
-            <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="sub-style">
-                    <h4 class="sub-title px-3 mb-0">Why Choose Us</h4>
-                </div>
-                <h1 class="display-3 mb-4">Why Choose Us? Get Your Life Style Back</h1>
-                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at
-                    atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam
-                    necessitatibus saepe in ab? Repellat!</p>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="row-cols-1 feature-item p-4">
-                        <div class="col-12">
-                            <div class="feature-icon mb-4">
-                                <div class="p-3 d-inline-flex bg-white rounded">
-                                    <i class="fas fa-diagnoses fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                            <div class="feature-content d-flex flex-column">
-                                <h5 class="mb-4">Licensed Therapist</h5>
-                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
-                                    accusamus,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="row-cols-1 feature-item p-4">
-                        <div class="col-12">
-                            <div class="feature-icon mb-4">
-                                <div class="p-3 d-inline-flex bg-white rounded">
-                                    <i class="fas fa-briefcase-medical fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                            <div class="feature-content d-flex flex-column">
-                                <h5 class="mb-4">Personalized Treatment</h5>
-                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
-                                    accusamus,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="row-cols-1 feature-item p-4">
-                        <div class="col-12">
-                            <div class="feature-icon mb-4">
-                                <div class="p-3 d-inline-flex bg-white rounded">
-                                    <i class="fas fa-hospital-user fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                            <div class="feature-content d-flex flex-column">
-                                <h5 class="mb-4">Therapy Goals</h5>
-                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
-                                    accusamus,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="row-cols-1 feature-item p-4">
-                        <div class="col-12">
-                            <div class="feature-icon mb-4">
-                                <div class="p-3 d-inline-flex bg-white rounded">
-                                    <i class="fas fa-users fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                            <div class="feature-content d-flex flex-column">
-                                <h5 class="mb-4">Practitioners Network</h5>
-                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
-                                    accusamus,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="row-cols-1 feature-item p-4">
-                        <div class="col-12">
-                            <div class="feature-icon mb-4">
-                                <div class="p-3 d-inline-flex bg-white rounded">
-                                    <i class="fas fa-spa fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                            <div class="feature-content d-flex flex-column">
-                                <h5 class="mb-4">Comfortable Center</h5>
-                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
-                                    accusamus,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="row-cols-1 feature-item p-4">
-                        <div class="col-12">
-                            <div class="feature-icon mb-4">
-                                <div class="p-3 d-inline-flex bg-white rounded">
-                                    <i class="fas fa-heart fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                            <div class="feature-content d-flex flex-column">
-                                <h5 class="mb-4">Experienced Stuff</h5>
-                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
-                                    accusamus,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="row-cols-1 feature-item p-4">
-                        <div class="col-12">
-                            <div class="feature-icon mb-4">
-                                <div class="p-3 d-inline-flex bg-white rounded">
-                                    <i class="fab fa-pied-piper fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                            <div class="feature-content d-flex flex-column">
-                                <h5 class="mb-4">Therapy Goals</h5>
-                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
-                                    accusamus,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="row-cols-1 feature-item p-4">
-                        <div class="col-12">
-                            <div class="feature-icon mb-4">
-                                <div class="p-3 d-inline-flex bg-white rounded">
-                                    <i class="fas fa-user-md fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                            <div class="feature-content d-flex flex-column">
-                                <h5 class="mb-4">Licensed Therapist</h5>
-                                <p class="mb-0">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
-                                    accusamus,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
-                    <a href="#" class="btn btn-primary rounded-pill text-white py-3 px-5">More Details</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Feature End -->
+    <div id="assess" class="container-fluid feature py-5">
+        <div class="container">
+            <div class="appointment-form rounded p-5">
+                <p class="fs-4 text-uppercase text-primary">Get Help</p>
 
+                <div class="row gy-3 gx-4">
+                    <div class="col-md-12">
+                        <h2>Stress Level Assessment</h2>
+                        <form id="stressForm" class="form">
+                            <!-- Age Group Selection -->
+                            <div class="mb-3">
+                                <label for="ageGroup" class="form-label">Select Your Age Group</label>
+                                <select class="form-select" id="ageGroup" required>
+                                    <option value="" disabled selected>Select your age group</option>
+                                    <option value="Gen Z High School">Gen Z - High School</option>
+                                    <option value="Gen Z Senior High">Gen Z - Senior High</option>
+                                    <option value="Gen Z College">Gen Z - College</option>
+                                    <option value="Professor">Professor</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
 
-    <!-- Book Appointment Start -->
-    <div class="container-fluid appointment py-5">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2">
-                    <div class="section-title text-start">
-                        <h4 class="sub-title pe-3 mb-0">Solutions To Your Pain</h4>
-                        <h1 class="display-4 mb-4">Best Quality Services With Minimal Pain Rate</h1>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti
-                            amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia
-                            voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p>
-                        <div class="row g-4">
-                            <div class="col-sm-6">
-                                <div class="d-flex flex-column h-100">
-                                    <div class="mb-4">
-                                        <h5 class="mb-3"><i class="fa fa-check text-primary me-2"></i> Body
-                                            Relaxation</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
-                                            deserunt qui cupiditate veritatis enim ducimus.</p>
-                                    </div>
-                                    <div class="mb-4">
-                                        <h5 class="mb-3"><i class="fa fa-check text-primary me-2"></i> Body
-                                            Relaxation</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
-                                            deserunt qui cupiditate veritatis enim ducimus.</p>
-                                    </div>
-                                    <div class="text-start mb-4">
-                                        <a href="#"
-                                            class="btn btn-primary rounded-pill text-white py-3 px-5">More Details</a>
-                                    </div>
-                                </div>
+                            <!-- Gender Selection -->
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">Gender</label>
+                                <select class="form-select" id="gender" required>
+                                    <option value="" disabled selected>Select your gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Prefer Not to Say">Prefer Not to Say</option>
+                                </select>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="video h-100">
-                                    <img src="img/video-img.jpg" class="img-fluid rounded w-100 h-100"
-                                        style="object-fit: cover;" alt="">
-                                    <button type="button" class="btn btn-play" data-bs-toggle="modal"
-                                        data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
-                                        data-bs-target="#videoModal">
-                                        <span></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
-                    <div class="appointment-form rounded p-5">
-                        <p class="fs-4 text-uppercase text-primary">Get In Touch</p>
-                        <h1 class="display-5 mb-4">Get Appointment</h1>
-                        <form>
-                            <div class="row gy-3 gx-4">
-                                <div class="col-xl-6">
-                                    <input type="text"
-                                        class="form-control py-3 border-primary bg-transparent text-white"
-                                        placeholder="First Name">
-                                </div>
-                                <div class="col-xl-6">
-                                    <input type="email"
-                                        class="form-control py-3 border-primary bg-transparent text-white"
-                                        placeholder="Email">
-                                </div>
-                                <div class="col-xl-6">
-                                    <input type="phone" class="form-control py-3 border-primary bg-transparent"
-                                        placeholder="Phone">
-                                </div>
-                                <div class="col-xl-6">
-                                    <select class="form-select py-3 border-primary bg-transparent"
-                                        aria-label="Default select example">
-                                        <option selected>Your Gender</option>
-                                        <option value="1">Male</option>
-                                        <option value="2">FeMale</option>
-                                        <option value="3">Others</option>
-                                    </select>
-                                </div>
-                                <div class="col-xl-6">
-                                    <input type="date" class="form-control py-3 border-primary bg-transparent">
-                                </div>
-                                <div class="col-xl-6">
-                                    <select class="form-select py-3 border-primary bg-transparent"
-                                        aria-label="Default select example">
-                                        <option selected>Department</option>
-                                        <option value="1">Physiotherapy</option>
-                                        <option value="2">Physical Helth</option>
-                                        <option value="2">Treatments</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control border-primary bg-transparent text-white" name="text" id="area-text" cols="30"
-                                        rows="5" placeholder="Write Comments"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button type="button" class="btn btn-primary text-white w-100 py-3 px-5">SUBMIT
-                                        NOW</button>
-                                </div>
+
+                            <!-- Stress Level Questions (Shuffled) -->
+                            <h4 class="mt-3">How stressed do you feel right now? (Select one per
+                                question)</h4>
+                            <div id="questionsContainer"></div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -424,6 +210,7 @@
             </div>
         </div>
     </div>
+
     <!-- Modal Video -->
     <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -445,268 +232,7 @@
     <!-- Book Appointment End -->
 
 
-    <!-- Team Start -->
-    <div class="container-fluid team py-5">
-        <div class="container py-5">
-            <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="sub-style">
-                    <h4 class="sub-title px-3 mb-0">Meet our team</h4>
-                </div>
-                <h1 class="display-3 mb-4">Physiotherapy Services from Professional Therapist</h1>
-                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at
-                    atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam
-                    necessitatibus saepe in ab? Repellat!</p>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item rounded">
-                        <div class="team-img rounded-top h-100">
-                            <img src="img/team-1.jpg" class="img-fluid rounded-top w-100" alt="">
-                            <div class="team-icon d-flex justify-content-center">
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
-                            <h5>Full Name</h5>
-                            <p class="mb-0">Message Physio Therapist</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item rounded">
-                        <div class="team-img rounded-top h-100">
-                            <img src="img/team-2.jpg" class="img-fluid rounded-top w-100" alt="">
-                            <div class="team-icon d-flex justify-content-center">
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
-                            <h5>Full Name</h5>
-                            <p class="mb-0">Rehabilitation Therapist</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item rounded">
-                        <div class="team-img rounded-top h-100">
-                            <img src="img/team-3.jpg" class="img-fluid rounded-top w-100" alt="">
-                            <div class="team-icon d-flex justify-content-center">
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
-                            <h5>Full Name</h5>
-                            <p class="mb-0">Doctor of Physical therapy</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item rounded">
-                        <div class="team-img rounded-top h-100">
-                            <img src="img/team-4.jpg" class="img-fluid rounded-top w-100" alt="">
-                            <div class="team-icon d-flex justify-content-center">
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i
-                                        class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
-                            <h5>Full Name</h5>
-                            <p class="mb-0">Doctor of Physical therapy</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
 
-
-    <!-- Testimonial Start -->
-    <div class="container-fluid testimonial py-5 wow zoomInDown" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="section-title mb-5">
-                <div class="sub-style">
-                    <h4 class="sub-title text-white px-3 mb-0">Testimonial</h4>
-                </div>
-                <h1 class="display-3 mb-4">What Clients are Say</h1>
-            </div>
-            <div class="testimonial-carousel owl-carousel">
-                <div class="testimonial-item">
-                    <div class="testimonial-inner p-5">
-                        <div class="testimonial-inner-img mb-4">
-                            <img src="img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
-                        </div>
-                        <p class="text-white fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
-                            nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed
-                            voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                        </p>
-                        <div class="text-center">
-                            <h5 class="mb-2">John Abraham</h5>
-                            <p class="mb-2 text-white-50">New York, USA</p>
-                            <div class="d-flex justify-content-center">
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-inner p-5">
-                        <div class="testimonial-inner-img mb-4">
-                            <img src="img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
-                        </div>
-                        <p class="text-white fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
-                            nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed
-                            voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                        </p>
-                        <div class="text-center">
-                            <h5 class="mb-2">John Abraham</h5>
-                            <p class="mb-2 text-white-50">New York, USA</p>
-                            <div class="d-flex justify-content-center">
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-inner p-5">
-                        <div class="testimonial-inner-img mb-4">
-                            <img src="img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
-                        </div>
-                        <p class="text-white fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
-                            nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed
-                            voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                        </p>
-                        <div class="text-center">
-                            <h5 class="mb-2">John Abraham</h5>
-                            <p class="mb-2 text-white-50">New York, USA</p>
-                            <div class="d-flex justify-content-center">
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                                <i class="fas fa-star text-secondary"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
-
-
-    <!-- Blog Start -->
-    <div class="container-fluid blog py-5">
-        <div class="container py-5">
-            <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="sub-style">
-                    <h4 class="sub-title px-3 mb-0">Our Blog</h4>
-                </div>
-                <h1 class="display-3 mb-4">Excellent Facility and High Quality Therapy</h1>
-                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at
-                    atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam
-                    necessitatibus saepe in ab? Repellat!</p>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="blog-item rounded">
-                        <div class="blog-img">
-                            <img src="img/blog-1.jpg" class="img-fluid w-100" alt="Image">
-                        </div>
-                        <div class="blog-centent p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <p class="mb-0 text-muted"><i class="fa fa-calendar-alt text-primary"></i> 01 Jan 2045
-                                </p>
-                                <a href="#" class="text-muted"><span
-                                        class="fa fa-comments text-primary"></span> 3 Comments</a>
-                            </div>
-                            <a href="#" class="h4">Remove back Pain While Working on o physio</a>
-                            <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium hic
-                                consequatur beatae architecto,</p>
-                            <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-1">Read
-                                More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="blog-item rounded">
-                        <div class="blog-img">
-                            <img src="img/blog-2.jpg" class="img-fluid w-100" alt="Image">
-                        </div>
-                        <div class="blog-centent p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <p class="mb-0 text-muted"><i class="fa fa-calendar-alt text-primary"></i> 01 Jan 2045
-                                </p>
-                                <a href="#" class="text-muted"><span
-                                        class="fa fa-comments text-primary"></span> 3 Comments</a>
-                            </div>
-                            <a href="#" class="h4">Benefits of a weekly physiotherapy session</a>
-                            <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium hic
-                                consequatur beatae architecto,</p>
-                            <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-1">Read
-                                More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="blog-item rounded">
-                        <div class="blog-img">
-                            <img src="img/blog-3.jpg" class="img-fluid w-100" alt="Image">
-                        </div>
-                        <div class="blog-centent p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <p class="mb-0 text-muted"><i class="fa fa-calendar-alt text-primary"></i> 01 Jan 2045
-                                </p>
-                                <a href="#" class="text-muted"><span
-                                        class="fa fa-comments text-primary"></span> 3 Comments</a>
-                            </div>
-                            <a href="#" class="h4">Regular excercise can slow ageing process</a>
-                            <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium hic
-                                consequatur beatae architecto,</p>
-                            <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-1">Read
-                                More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Blog End -->
 
 
     <!-- Footer Start -->
@@ -715,7 +241,8 @@
             <div class="row g-5">
                 <div class="col-md-6 col-lg-6 col-xl-3">
                     <div class="footer-item d-flex flex-column">
-                        <h4 class="text-white mb-4"><i class="fas fa-star-of-life me-3"></i>Terapia</h4>
+                        <h4 class="text-white mb-4"> <img class="me-3" style="width: 80px;" src="/logo.png"
+                                alt="" srcset=""> </i>Feel Better</h4>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolorem impedit eos autem
                             dolores laudantium quia, qui similique
                         </p>
@@ -804,7 +331,76 @@
 
     <!-- Template Javascript -->
     <script src="/js/main.js"></script>
+    <script>
+        // Randomized and shuffled stress level questions
+        const questions = [
+            "How often do you feel overwhelmed by tasks?",
+            "Do you experience physical symptoms like headaches or muscle tension due to stress?",
+            "How often do you feel anxious about your future?",
+            "Do you find it hard to sleep because of stress?",
+            "How often do you feel like you can't cope with everything?",
+            "Do you have trouble focusing on tasks because of stress?",
+            "Do you feel that stress is affecting your health?",
+            "How often do you feel like you need a break but can't find the time?",
+            "Do you frequently worry about things out of your control?",
+            "How often do you feel tired even after resting?",
+            "Do you feel like you have no time for yourself?",
+            "How much do you avoid social activities because of stress?",
+            "Do you feel like stress is affecting your performance at work/school?",
+            "Do you have a hard time relaxing after work/school?",
+            "How often do you feel physically drained?",
+            "Do you often feel that your workload is too heavy to manage?",
+            "Do you feel emotionally exhausted?",
+            "How often do you feel nervous or anxious without a clear reason?",
+            "Do you struggle to find balance between work/school and relaxation?",
+            "How often do you find yourself feeling overwhelmed by minor issues?",
+            "Do you feel more stressed in the mornings or evenings?",
+            "How often do you find yourself in a bad mood due to stress?",
+            "Do you feel like stress negatively impacts your relationships?",
+            "How often do you rely on unhealthy coping mechanisms (e.g., smoking, drinking)?",
+            "Do you find it difficult to make decisions because of stress?"
+        ];
 
+        // Shuffle questions randomly
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+        }
+
+        // Render questions to the form
+        function renderQuestions() {
+            shuffleArray(questions);
+            const container = document.getElementById('questionsContainer');
+            questions.slice(0, 25).forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('mb-3');
+                questionDiv.innerHTML = `
+                    <label for="q${index + 1}" class="form-label">${question}</label>
+                    <select class="form-select" id="q${index + 1}" required>
+                        <option value="" disabled selected>Select your answer</option>
+                        <option value="Resting">Resting</option>
+                        <option value="Low Stress">Low Stress</option>
+                        <option value="Medium Stress">Medium Stress</option>
+                        <option value="High Stress">High Stress</option>
+                    </select>
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // Initialize the form on page load
+        window.onload = function() {
+            renderQuestions();
+        }
+
+        // Form submission handling
+        document.getElementById('stressForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("Your response has been recorded. Thank you for participating!");
+        });
+    </script>
 </body>
 
 </html>
