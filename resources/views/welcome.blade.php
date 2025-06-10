@@ -35,35 +35,6 @@
 <body>
 
 
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
-        <div class="row gx-0 align-items-center" style="height: 45px;">
-            <div class="col-lg-8 text-center text-lg-start mb-lg-0">
-                <div class="d-flex flex-wrap">
-                    <a href="#" class="text-light me-4"><i
-                            class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
-                    <a href="#" class="text-light me-4"><i
-                            class="fas fa-phone-alt text-primary me-2"></i>+01234567890</a>
-                    <a href="#" class="text-light me-0"><i
-                            class="fas fa-envelope text-primary me-2"></i>Example@gmail.com</a>
-                </div>
-            </div>
-            <div class="col-lg-4 text-center text-lg-end">
-                <div class="d-flex align-items-center justify-content-end">
-                    <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i
-                            class="fab fa-twitter"></i></a>
-                    <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-0"><i
-                            class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
 
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
@@ -170,7 +141,8 @@
                 <div class="row gy-3 gx-4">
                     <div class="col-md-12">
                         <h2>Stress Level Assessment</h2>
-                        <form id="stressForm" class="form">
+                        <form id="stressForm" class="form" action="" method="POST">
+                            @csrf
                             <!-- Age Group Selection -->
                             <div class="mb-3">
                                 <label for="ageGroup" class="form-label">Select Your Age Group</label>
@@ -211,110 +183,11 @@
         </div>
     </div>
 
-    <!-- Modal Video -->
-    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content rounded-0">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- 16:9 aspect ratio -->
-                    <div class="ratio ratio-16x9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
-                            allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Book Appointment End -->
 
 
 
 
 
-    <!-- Footer Start -->
-    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item d-flex flex-column">
-                        <h4 class="text-white mb-4"> <img class="me-3" style="width: 80px;" src="/logo.png"
-                                alt="" srcset=""> </i>Feel Better</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolorem impedit eos autem
-                            dolores laudantium quia, qui similique
-                        </p>
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-share fa-2x text-white me-2"></i>
-                            <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href=""><i
-                                    class="fab fa-instagram"></i></a>
-                            <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item d-flex flex-column">
-                        <h4 class="mb-4 text-white">Quick Links</h4>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> About Us</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Contact Us</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Our Blog & News</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Our Team</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item d-flex flex-column">
-                        <h4 class="mb-4 text-white">Terapia Services</h4>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> All Services</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Physiotherapy</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Diagnostics</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Manual Therapy</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Massage Therapy</a>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> Rehabilitation</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item d-flex flex-column">
-                        <h4 class="mb-4 text-white">Contact Info</h4>
-                        <a href=""><i class="fa fa-map-marker-alt me-2"></i> 123 Street, New York, USA</a>
-                        <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
-                        <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
-                        <a href=""><i class="fas fa-phone me-2"></i> +012 345 67890</a>
-                        <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright py-4">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-md-6 text-center text-md-start mb-md-0">
-                    <span class="text-white"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Your
-                            Site Name</a>, All right reserved.</span>
-                </div>
-                <div class="col-md-6 text-center text-md-end text-white">
-                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a
-                        class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
