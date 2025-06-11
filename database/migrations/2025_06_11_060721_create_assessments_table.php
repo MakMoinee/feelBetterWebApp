@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("feeling");
             $table->text("wellBeingAnswers");
             $table->string("result");
+            $table->integer("score");
             $table->timestamps();
         });
     }

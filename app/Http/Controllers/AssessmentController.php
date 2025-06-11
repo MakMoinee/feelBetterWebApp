@@ -114,6 +114,7 @@ class AssessmentController extends Controller
 
         $newAssessment->wellBeingAnswers = $jsonString;
         $newAssessment->result = $wellBeingDescription;
+        $newAssessment->score = $totalWellBeingScore;
         $isSave = $newAssessment->save();
         if ($isSave) {
             return response()->json([
