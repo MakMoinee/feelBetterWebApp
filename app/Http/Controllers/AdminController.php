@@ -21,8 +21,12 @@ class AdminController extends Controller
                 session()->put("unauthorized", true);
                 return redirect("/admin");
             }
-            $assessments = Assessments::orderBy('created_at', 'desc')->get();;
-            return view("admin.admin", ["assessments" => $assessments]);
+            $assessments = Assessments::orderBy('created_at', 'desc')->get();
+            $answers = array();
+            foreach ($assessments as $a) {
+                $answers[$a['id']] = $a['wellBeingAnswers'];
+            }
+            return view("admin.admin", ["assessments" => $assessments, 'answers' => $answers]);
         }
         return redirect("/");
     }

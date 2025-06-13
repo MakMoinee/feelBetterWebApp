@@ -205,7 +205,12 @@
                                         <td>
                                             <button type="button" class="btn btn-info btn-sm"
                                                 onclick="showResultsModal({{ $assessment->score }}, '{{ $assessment->result }}', '{{ $assessment->feeling }}');">
-                                                View
+                                                Result
+                                            </button>
+                                            <button type="button" class="btn btn-success btn-sm"
+                                                onclick="showResponse('{{ $assessment->id }}');" data-bs-toggle="modal"
+                                                data-bs-target="#responseDetails">
+                                                Responses
                                             </button>
                                             <button type="button" class="btn btn-danger btn-sm"
                                                 data-bs-target="#deleteModal" data-bs-toggle="modal"
@@ -239,6 +244,23 @@
                 </div>
                 <div class="modal-body">
                     <pre id="wellBeingAnswersJson" class="modal-json-pre"></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="responseDetails" tabindex="-1" aria-labelledby="responseDetailsLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="responseDetailsLabel">Well-being Assessment Details</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="questionsContainer"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -305,6 +327,7 @@
     <script src="/js/main.js"></script>
 
     <script>
+        let mData = @json($answers);
         // JavaScript to handle the modal for wellBeingAnswers details
         document.addEventListener('DOMContentLoaded', function() {
             const assessmentDetailsModal = document.getElementById('assessmentDetailsModal');
@@ -325,6 +348,40 @@
                 }
             });
         });
+
+        function showResponse(id) {
+            if (mData[id]) {
+                console.log(mData[id]);
+                const quest = JSON.parse(mData[id]);
+
+                const container = document.getElementById('questionsContainer');
+
+                quest.forEach((item, index) => {
+                    const group = document.createElement('div');
+                    group.className = 'question-group';
+
+                    const label = document.createElement('label');
+                    label.htmlFor = `answer-${index}`;
+                    label.textContent = item.question;
+
+                    const br1 = document.createElement('br');
+
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.id = `answer-${index}`;
+                    input.name = `answer-${index}`;
+                    input.value = item.answer;
+                    input.setAttribute("class", "form-control disabled mt-2")
+
+                    const br2 = document.createElement('br');
+                    group.appendChild(label);
+                    group.appendChild(br1);
+                    group.appendChild(input);
+                    group.appendChild(br2);
+                    container.appendChild(group);
+                });
+            }
+        }
 
         function deleteThis(id) {
             let deleteForm = document.getElementById("deleteForm");
