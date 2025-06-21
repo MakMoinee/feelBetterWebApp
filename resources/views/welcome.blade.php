@@ -21,9 +21,7 @@
     <link href="/lib/animate/animate.min.css" rel="stylesheet">
     <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="/css/style.css" rel="stylesheet">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -84,50 +82,64 @@
                     <div class="col-md-12">
                         <h2>Well-being Check-in</h2>
                         <form id="stressForm" class="form" action="" method="POST">
-                            <div class="mb-3">
-                                <label for="ageGroup" class="form-label">Select Your Age Group</label>
-                                <select class="form-select" id="ageGroup" required>
-                                    <option value="" disabled selected>Select your age group</option>
-                                    <option value="Gen Z High School">Gen Z - High School</option>
-                                    <option value="Gen Z Senior High">Gen Z - Senior High</option>
-                                    <option value="Gen Z College">Gen Z - College</option>
-                                    <option value="Professor">Professor</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                            <div id="initialQuestions">
+                                <div class="mb-3">
+                                    <label for="ageGroup" class="form-label">Select Your Age Group</label>
+                                    <select class="form-select" id="ageGroup" required>
+                                        <option value="" disabled selected>Select your age group</option>
+                                        <option value="Gen Z High School">Gen Z - High School</option>
+                                        <option value="Gen Z Senior High">Gen Z - Senior High</option>
+                                        <option value="Gen Z College">Gen Z - College</option>
+                                        <option value="Professor">Professor</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="gender" class="form-label">Gender</label>
+                                    <select class="form-select" id="gender" required>
+                                        <option value="" disabled selected>Select your gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Prefer Not to Say">Prefer Not to Say</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="feeling" class="form-label">How are you feeling today</label>
+                                    <select class="form-select" id="feeling" required>
+                                        <option value="" disabled selected>Select your answer</option>
+                                        <option value="joyful">Joyful</option>
+                                        <option value="energetic">Energetic</option>
+                                        <option value="sad">Sad</option>
+                                        <option value="irritable">Irritable</option>
+                                        <option value="anxious">Anxious</option>
+                                    </select>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button type="button" class="btn btn-primary" id="startSurveyButton">Start
+                                        Well-being Questions</button>
+                                </div>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="gender" class="form-label">Gender</label>
-                                <select class="form-select" id="gender" required>
-                                    <option value="" disabled selected>Select your gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Prefer Not to Say">Prefer Not to Say</option>
-                                </select>
+
+                            <div id="wellBeingQuestions" style="display:none;">
+                                <h4 class="mt-4">What's your current well-being like? (Select one per
+                                    question)</h4>
+                                <div id="questionsContainer"></div>
+                                <div id="paginationControls" class="mt-4"></div>
+
+                                <div id="finalAffirmationContainer"></div>
+
+                                <div class="text-center mt-3">
+                                    <button type="submit" class="btn btn-primary" id="submitButton"
+                                        style="display: none;">Submit</button>
+                                </div>
                             </div>
-
-                            <div class="mb-3">
-                                <label for="feeling" class="form-label">How are you feeling today</label>
-                                <select class="form-select" id="feeling" required>
-                                    <option value="" disabled selected>Select your answer</option>
-                                    <option value="joyful">Joyful</option>
-                                    <option value="energetic">Energetic</option>
-                                    <option value="sad">Sad</option>
-                                    <option value="irritable">Irritable</option>
-                                    <option value="anxious">Anxious</option>
-                                </select>
-                            </div>
-
-                            <h4 class="mt-4">What's your current well-being like? (Select one per
-                                question)</h4>
-                            <div id="questionsContainer"></div>
-                            <div id="paginationControls" class="mt-4"></div>
-
-                            <div id="finalAffirmationContainer"></div>
-
-                            <div class="text-center mt-3">
-                                <button type="submit" class="btn btn-primary" id="submitButton" style="display: none;">Submit</button>
-                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                         </form>
                         <div id="formMessage" class="mt-3 text-center" style="display: none;"></div>
                     </div>
@@ -219,11 +231,10 @@
             "Wonderful work! Your awareness is a powerful tool for self-care."
         ];
 
-        const questionsPerPage = 10;
-        let currentPage = 1;
+        const questionsPerPage = 1; // One question per page
+        let currentPage = 0; // Start at 0 to account for initial demographic page
         let shuffledQuestions = [...questions]; // Create a mutable copy
-        // `selectedAnswers` will store answers for all questions by their original index
-        let selectedAnswers = {}; 
+        let selectedAnswers = {}; // `selectedAnswers` will store answers for all questions by their original index
 
         // Shuffle questions randomly
         function shuffleArray(arr) {
@@ -238,34 +249,26 @@
             const container = document.getElementById('questionsContainer');
             const finalAffirmationContainer = document.getElementById('finalAffirmationContainer');
             const submitButton = document.getElementById('submitButton');
+            const paginationContainer = document.getElementById('paginationControls');
 
             container.innerHTML = ''; // Clear previous questions
             finalAffirmationContainer.innerHTML = ''; // Clear previous affirmations
 
-            const startIndex = (currentPage - 1) * questionsPerPage;
-            const endIndex = startIndex + questionsPerPage;
-            const totalPages = Math.ceil(shuffledQuestions.length / questionsPerPage);
+            const totalQuestionPages = shuffledQuestions.length; // Each question is a page
+            const totalPagesIncludingDemographics = totalQuestionPages + 1; // +1 for the initial demographics page
 
-            // Hide/Show Submit Button based on current page
-            if (currentPage === totalPages) {
+            // Show/Hide Submit Button based on current page
+            if (currentPage === totalQuestionPages) { // If it's the last question page
                 submitButton.style.display = 'block';
+                paginationContainer.style.display = 'none'; // Hide pagination on the last page before submit
             } else {
                 submitButton.style.display = 'none';
+                paginationContainer.style.display = 'flex'; // Show pagination for questions
             }
 
-
-            // If we've advanced beyond the last page, display final affirmation
-            if (currentPage > totalPages) {
-                document.getElementById('paginationControls').style.display = 'none';
-                submitButton.style.display = 'none'; // Hide submit button if already finished
-                displayFinalAffirmation();
-                return;
-            }
-
-            document.getElementById('paginationControls').style.display = 'block';
-
-            // Display mental health message using SweetAlert2 on the second page
-            if (currentPage === 2) {
+            // Display mental health message using SweetAlert2 every two *question* pages
+            // This means on question page 2, 4, 6, etc.
+            if (currentPage > 0 && currentPage % 2 === 0) { // Check for even question pages (2, 4, 6...)
                 const randomMessage = mentalHealthMessages[Math.floor(Math.random() * mentalHealthMessages.length)];
                 Swal.fire({
                     position: 'center',
@@ -277,20 +280,17 @@
                 });
             }
 
-            const questionsToRender = shuffledQuestions.slice(startIndex, endIndex);
+            // Render the current question
+            if (currentPage > 0 && currentPage <= totalQuestionPages) {
+                const currentQuestionIndexInShuffledArray = currentPage - 1; // Adjust for 0-indexed array
+                const qObj = {
+                    text: shuffledQuestions[currentQuestionIndexInShuffledArray],
+                    originalIndex: questions.indexOf(shuffledQuestions[currentQuestionIndexInShuffledArray])
+                };
 
-            // window.renderedQuestions is only for the current page's questions
-            // This helps in validating answers only for the current page
-            window.renderedQuestions = questionsToRender.map((q) => ({
-                text: q,
-                originalIndex: questions.indexOf(q) // Store original index for selectedAnswers object
-            }));
-
-            window.renderedQuestions.forEach((qObj) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.classList.add('mb-3');
-                // Use original index for unique ID and for accessing selectedAnswers
-                const questionId = `q-${qObj.originalIndex}`; 
+                const questionId = `q-${qObj.originalIndex}`;
                 questionDiv.innerHTML = `
                     <label for="${questionId}" class="form-label">${qObj.text}</label>
                     <select class="form-select" id="${questionId}" data-question-original-index="${qObj.originalIndex}" required>
@@ -312,23 +312,29 @@
                 document.getElementById(questionId).addEventListener('change', (event) => {
                     selectedAnswers[qObj.originalIndex] = event.target.value;
                 });
-            });
+            } else if (currentPage === 0) {
+                // This is the initial demographic page, questionsContainer should be empty
+                // The initial questions are handled by the 'initialQuestions' div
+            } else {
+                // Beyond the last question page, means survey is complete or submitted
+                document.getElementById('wellBeingQuestions').style.display = 'none';
+                displayFinalAffirmation();
+                return;
+            }
 
-            renderPaginationControls();
+            renderPaginationControls(totalQuestionPages);
         }
 
         // Render pagination controls
-        function renderPaginationControls() {
+        function renderPaginationControls(totalQuestionPages) {
             const paginationContainer = document.getElementById('paginationControls');
             paginationContainer.innerHTML = ''; // Clear previous controls
-
-            const totalPages = Math.ceil(shuffledQuestions.length / questionsPerPage);
 
             // Previous Button
             const prevButton = document.createElement('button');
             prevButton.classList.add('btn', 'btn-primary', 'me-2');
             prevButton.textContent = 'Previous';
-            prevButton.disabled = currentPage === 1;
+            prevButton.disabled = currentPage <= 1; // Disable on first question page or demographics
             prevButton.addEventListener('click', () => {
                 currentPage--;
                 renderQuestions();
@@ -338,39 +344,55 @@
             // Page Number Indicator
             const pageIndicator = document.createElement('span');
             pageIndicator.classList.add('me-2');
-            pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+            if (currentPage === 0) {
+                pageIndicator.textContent = 'Demographics';
+            } else {
+                pageIndicator.textContent = `Question ${currentPage} of ${totalQuestionPages}`;
+            }
             paginationContainer.appendChild(pageIndicator);
 
             // Next Button
             const nextButton = document.createElement('button');
             nextButton.classList.add('btn', 'btn-primary');
             nextButton.textContent = 'Next';
-            // Disable next button on the last page as the submit button will appear
-            nextButton.disabled = currentPage === totalPages;
+            nextButton.disabled = currentPage === totalQuestionPages; // Disable on the last question page
 
             nextButton.addEventListener('click', () => {
-                // Check if all questions on the current page are answered before proceeding
-                const currentQuestions = window.renderedQuestions;
-                const allAnsweredOnCurrentPage = currentQuestions.every(qObj => selectedAnswers[qObj.originalIndex]);
+                if (currentPage === 0) { // On demographics page
+                    const ageGroup = document.getElementById('ageGroup').value;
+                    const gender = document.getElementById('gender').value;
+                    const feeling = document.getElementById('feeling').value;
 
-                if (!allAnsweredOnCurrentPage) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Oops!',
-                        text: 'Please answer all questions on this page before proceeding.',
-                        confirmButtonText: 'OK'
-                    });
-                    return;
+                    if (!ageGroup || !gender || !feeling) {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Oops!',
+                            text: 'Please fill out all demographic fields before proceeding.',
+                            confirmButtonText: 'OK'
+                        });
+                        return;
+                    }
+                    // Hide initial questions and show well-being questions
+                    document.getElementById('initialQuestions').style.display = 'none';
+                    document.getElementById('wellBeingQuestions').style.display = 'block';
+                } else { // On a question page
+                    const currentQuestionOriginalIndex = questions.indexOf(shuffledQuestions[currentPage - 1]);
+                    if (!selectedAnswers[currentQuestionOriginalIndex]) {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Oops!',
+                            text: 'Please answer the current question before proceeding.',
+                            confirmButtonText: 'OK'
+                        });
+                        return;
+                    }
                 }
-
                 currentPage++;
                 renderQuestions();
             });
-            // Only append Next button if not on the last page
-            if (currentPage < totalPages) {
-                paginationContainer.appendChild(nextButton);
-            }
+            paginationContainer.appendChild(nextButton);
         }
+
 
         // Display final affirmation
         function displayFinalAffirmation() {
@@ -554,11 +576,11 @@
                 showMessage("Please fill out your age group, gender, and how you're feeling.", 'error');
                 return;
             }
-            
+
             // Check if all paginated questions have been answered
             const allPaginatedQuestionsAnswered = Object.keys(selectedAnswers).length === questions.length;
             if (!allPaginatedQuestionsAnswered) {
-                 Swal.fire({
+                Swal.fire({
                     icon: 'warning',
                     title: 'Incomplete!',
                     text: 'Please ensure all well-being questions are answered before submitting.',
@@ -601,12 +623,15 @@
 
                 if (response.ok) {
                     showMessage(result.message || "Your responses have been recorded successfully!", 'success');
-                    
+
                     // Clear answers and reset to first page after successful submission
                     selectedAnswers = {}; // Clear all stored answers
-                    currentPage = 1; // Reset to the first page
+                    currentPage = 0; // Reset to the initial demographics page
                     shuffleArray(shuffledQuestions); // Reshuffle for a fresh start
-                    renderQuestions(); // Re-render the first page of questions
+                    document.getElementById('initialQuestions').style.display = 'block'; // Show demographics
+                    document.getElementById('wellBeingQuestions').style.display = 'none'; // Hide questions
+                    form.reset(); // Reset form fields
+                    renderQuestions(); // Re-render the initial state
 
                     // Show results in modal
                     if (result.analysis) {
@@ -626,10 +651,38 @@
             }
         });
 
+        // Event listener for the "Start Well-being Questions" button
+        document.getElementById('startSurveyButton').addEventListener('click', () => {
+            const ageGroup = document.getElementById('ageGroup').value;
+            const gender = document.getElementById('gender').value;
+            const feeling = document.getElementById('feeling').value;
+
+            if (!ageGroup || !gender || !feeling) {
+                // Add Bootstrap validation styles to the demographic fields
+                document.getElementById('ageGroup').reportValidity();
+                document.getElementById('gender').reportValidity();
+                document.getElementById('feeling').reportValidity();
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops!',
+                    text: 'Please fill out all demographic fields before starting the well-being questions.',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
+
+            // Hide initial questions and show well-being questions
+            document.getElementById('initialQuestions').style.display = 'none';
+            document.getElementById('wellBeingQuestions').style.display = 'block';
+            currentPage = 1; // Move to the first question page
+            renderQuestions();
+        });
+
+
         // Initialize the form on page load
         window.onload = function() {
             shuffleArray(shuffledQuestions); // Shuffle only once on load
-            renderQuestions();
+            renderQuestions(); // Render the initial state (demographics)
         }
     </script>
 </body>
