@@ -74,9 +74,10 @@
             </div>
         </div>
     </div>
-    <div id="assess" class="container-fluid feature py-5">
+    <div id="assess" class="container-fluid feature py-5"
+        style="background-image: url('/1.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;">
         <div class="container">
-            <div class="appointment-form rounded p-5">
+            <div class="appointment-form rounded p-5" style="background-color: white !important;">
 
                 <div class="row gy-3 gx-4">
                     <div class="col-md-12">
@@ -84,7 +85,7 @@
                         <form id="stressForm" class="form" action="" method="POST">
                             <div id="initialQuestions">
                                 <div class="mb-3">
-                                    <label for="ageGroup" class="form-label">Select Your Age Group</label>
+                                    <label for="ageGroup" class="form-label text-dark">Select Your Age Group</label>
                                     <select class="form-select" id="ageGroup" required>
                                         <option value="" disabled selected>Select your age group</option>
                                         <option value="Gen Z High School">Gen Z - High School</option>
@@ -96,7 +97,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="gender" class="form-label">Gender</label>
+                                    <label for="gender" class="form-label text-dark">Gender</label>
                                     <select class="form-select" id="gender" required>
                                         <option value="" disabled selected>Select your gender</option>
                                         <option value="Male">Male</option>
@@ -106,7 +107,8 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="feeling" class="form-label">How are you feeling today</label>
+                                    <label for="feeling" class="form-label text-dark">How are you feeling
+                                        today</label>
                                     <select class="form-select" id="feeling" required>
                                         <option value="" disabled selected>Select your answer</option>
                                         <option value="joyful">Joyful</option>
@@ -123,8 +125,8 @@
                             </div>
 
 
-                            <div id="wellBeingQuestions" style="display:none;">
-                                <h4 class="mt-4">What's your current well-being like? (Select one per
+                            <div id="wellBeingQuestions" style="display:none; ">
+                                <h4 class="mt-4 text-white">What's your current well-being like? (Select one per
                                     question)</h4>
                                 <div id="questionsContainer"></div>
                                 <div id="paginationControls" class="mt-4"></div>
@@ -235,6 +237,7 @@
         let currentPage = 0; // Start at 0 to account for initial demographic page
         let shuffledQuestions = [...questions]; // Create a mutable copy
         let selectedAnswers = {}; // `selectedAnswers` will store answers for all questions by their original index
+        let imagePic = 1;
 
         // Shuffle questions randomly
         function shuffleArray(arr) {
@@ -268,7 +271,7 @@
 
             // Display mental health message using SweetAlert2 every two *question* pages
             // This means on question page 2, 4, 6, etc.
-            if (currentPage > 0 && currentPage % 2 === 0) { // Check for even question pages (2, 4, 6...)
+            if (currentPage > 0 && currentPage % 5 === 0) { // Check for even question pages (2, 4, 6...)
                 const randomMessage = mentalHealthMessages[Math.floor(Math.random() * mentalHealthMessages.length)];
                 Swal.fire({
                     position: 'center',
@@ -278,6 +281,15 @@
                     showConfirmButton: true,
                     confirmButtonText: 'Got It!'
                 });
+
+                imagePic++;
+                if (imagePic <= 5) {
+                    let assess = document.getElementById('assess');
+                    assess.setAttribute("style",
+                        `background-image: url('/${imagePic}.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;`
+                    );
+                }
+
             }
 
             // Render the current question
@@ -596,7 +608,8 @@
                 gender: gender,
                 feeling: feeling,
                 wellBeingAnswers: Object.keys(selectedAnswers).map(originalIndex => ({
-                    question: questions[originalIndex], // Use original `questions` array for text
+                    question: questions[
+                        originalIndex], // Use original `questions` array for text
                     answer: selectedAnswers[originalIndex]
                 }))
             };
