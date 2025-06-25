@@ -283,7 +283,7 @@
                 });
 
                 imagePic++;
-                if (imagePic <= 5) {
+                if (imagePic <= 6) {
                     let assess = document.getElementById('assess');
                     assess.setAttribute("style",
                         `background-image: url('/${imagePic}.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;`
