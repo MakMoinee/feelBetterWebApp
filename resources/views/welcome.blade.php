@@ -58,26 +58,24 @@
                 <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s">
                     <div class="section-title text-start mb-5">
                         <h4 class="sub-title pe-3 mb-0">About Us</h4>
-                        <h1 class="display-3 mb-4">We are Ready to Help You.</h1>
-                        <p class="mb-4" style="text-align: justify">At Feel Better, we are committed to improving
-                            mental well-being through
-                            accessible, user-friendly technology. Our mission is to provide individuals with the tools,
-                            resources, and support they need to navigate mental health challenges and foster a sense of
-                            balance and peace in their lives.
-
-                            Feel Better is designed to be a safe space where users can explore various mental health
-                            resources, including mood tracking, personalized and coping strategies.
-                            Whether you’re struggling with stress, Feel Better offers
-                            evidence-based approaches to help you understand and manage your emotions better.</p>
+                        <h1 class="display-3 mb-4">Feel better offers evidence based approach to help
+                            you understand and manage your emotions better.</h1>
                     </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 mx-auto">
+                    <button id="btnStartQ" onclick="startQuestion()" class="btn btn-primary"
+                        style="width: 100%;">Start</button>
                 </div>
             </div>
         </div>
     </div>
     <div id="assess" class="container-fluid feature py-5"
-        style="background-image: url('/1.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;">
+        style="display:none;background-image: url('/1.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;">
         <div class="container">
-            <div class="appointment-form rounded p-5" style="background-color: white !important;">
+            <div class="appointment-form rounded p-5" style="background-color: rgba(255, 255, 255, 0.8) !important;">
 
                 <div class="row gy-3 gx-4">
                     <div class="col-md-12">
@@ -88,10 +86,7 @@
                                     <label for="ageGroup" class="form-label text-dark">Select Your Age Group</label>
                                     <select class="form-select" id="ageGroup" required>
                                         <option value="" disabled selected>Select your age group</option>
-                                        <option value="Gen Z High School">Gen Z - High School</option>
-                                        <option value="Gen Z Senior High">Gen Z - Senior High</option>
-                                        <option value="Gen Z College">Gen Z - College</option>
-                                        <option value="Professor">Professor</option>
+                                        <option value="Gen Z High School">Gen Z</option>
                                         <option value="Other">Other</option>
                                     </select>
                                 </div>
@@ -119,14 +114,14 @@
                                     </select>
                                 </div>
                                 <div class="text-center mt-3">
-                                    <button type="button" class="btn btn-primary" id="startSurveyButton">Start
-                                        Well-being Questions</button>
+                                    <button type="button" class="btn btn-primary"
+                                        id="startSurveyButton">Start</button>
                                 </div>
                             </div>
 
 
                             <div id="wellBeingQuestions" style="display:none; ">
-                                <h4 class="mt-4 text-white">What's your current well-being like? (Select one per
+                                <h4 class="mt-4 text-dark">What's your current well-being like? (Select one per
                                     question)</h4>
                                 <div id="questionsContainer"></div>
                                 <div id="paginationControls" class="mt-4"></div>
@@ -304,7 +299,7 @@
                 questionDiv.classList.add('mb-3');
                 const questionId = `q-${qObj.originalIndex}`;
                 questionDiv.innerHTML = `
-                    <label for="${questionId}" class="form-label">${qObj.text}</label>
+                    <label for="${questionId}" class="form-label text-dark">${qObj.text}</label>
                     <select class="form-select" id="${questionId}" data-question-original-index="${qObj.originalIndex}" required>
                         <option value="" disabled selected>Select your answer</option>
                         <option value="rarely">Rarely or Never</option>
@@ -696,6 +691,16 @@
         window.onload = function() {
             shuffleArray(shuffledQuestions); // Shuffle only once on load
             renderQuestions(); // Render the initial state (demographics)
+        }
+
+        function startQuestion() {
+            let btnStartQ = document.getElementById("btnStartQ");
+            let assess = document.getElementById("assess");
+            btnStartQ.setAttribute("style", "display:none;");
+            assess.removeAttribute("style");
+            assess.setAttribute("style",
+                "background-image: url('/1.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;"
+                );
         }
     </script>
 </body>
