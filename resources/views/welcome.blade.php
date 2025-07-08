@@ -72,10 +72,11 @@
             </div>
         </div>
     </div>
-    <div id="assess" class="container-fluid feature py-5"
-        style="display:none;background-image: url('/1.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;">
+    <div id="assess" class="container-fluid feature py-5 "
+        style="display:none;background-image: url('/1.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 500px;">
         <div class="container">
-            <div class="appointment-form rounded p-5" style="background-color: rgba(255, 255, 255, 0.8) !important;">
+            <div class="appointment-form rounded p-5 mt-4"
+                style="background-color: rgba(255, 255, 255, 0.8) !important;">
 
                 <div class="row gy-3 gx-4">
                     <div class="col-md-12">
@@ -146,8 +147,9 @@
                 <div class="modal-body text-center">
                     <p class="lead" id="modalWellBeingDescription"></p>
                     <div id="gaugeContainer" style="width: 100%; height: 200px;"></div>
-                    <p class="display-4 mt-3" id="modalEmoji"></p>
-                    <p class="text-muted small">Score range: 25 (lowest) to 100 (highest)</p>
+                    <br>
+                    <p class="display-4 mt-4" id="modalEmoji"></p>
+                    <p class="text-muted small">Score range: 0 (lowest) to 120 (highest)</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
@@ -172,56 +174,36 @@
     <script>
         // All 50 well-being questions
         const allQuestions = [
-            "Do you feel tired?",
-            "Do you often feel sad or down for no specific reason?",
-            "Do you find it hard to enjoy things you used to like?",
-            "Do you feel emotionally lost or empty?",
-            "Do you feel more irritable than usual?",
-            "Do you cry more easily than before?",
-            "Do you find yourself overthinking everything?",
-            "Do you feel like you are moving or speaking more slowly than usual?",
-            "Do you experience sudden mood swings?",
-            "Do you feel hopeless about the future?",
-            "Do you feel hard to recharge?",
-            "Do you find it hard to control your worrying?",
-            "Do you feel nervous in social situations?",
-            "Do you avoid certain activities due to fear or anxiety?",
-            "Do you feel like something bad is going to happen?",
-            "Do you have physical symptoms like a racing heart, trembling, or sweating without reason?",
-            "Do you experience panic attacks or moments of intense fear?",
-            "Do you feel anxious even when you’re not under pressure?",
-            "Do you avoid responsibilities because they feel overwhelming?",
-            "Do you feel mentally lost most of the time?",
-            "Do you have trouble falling asleep?",
-            "Do you wake up frequently during the night?",
-            "Do you feel rested when you wake up?",
-            "Do you sleep much more or much less than usual?",
-            "Do you find it hard to get out of bed in the morning?",
-            "Do you find it hard to concentrate?",
-            "Do you forget things more easily lately?",
-            "Do you feel unmotivated to do daily tasks?",
-            "Do you procrastinate more than usual?",
-            "Do you struggle to make decisions?",
-            "Do you feel like a burden to others?",
-            "Do you think negatively about yourself?",
-            "Do you feel like you’re not good enough?",
-            "Do you blame yourself for things beyond your control?",
-            "Do you compare yourself negatively to others?",
-            "Do you experience frequent headaches?",
-            "Do you have stomachaches or digestion issues without a medical cause?",
-            "Do your muscles feel tense or sore even when you’re not active?",
-            "Do you feel unusually tired even after resting?",
-            "Do you experience changes in appetite (eating more or less)?",
-            "Have you withdrawn from friends or family?",
-            "Do you avoid things you used to enjoy?",
-            "Do you find yourself using alcohol, food, or substances to cope?",
-            "Do you lash out or lose your temper more easily?",
-            "Do you engage in risky behaviors or impulsive actions?",
-            "Do you often feel like life has no meaning?",
-            "Do you think about hurting yourself or others?",
-            "Do you feel like no one understands you?",
-            "Do you feel disconnected from yourself or your surroundings?",
-            "Do you wish you could just disappear or escape your life?"
+            "I often feel sad or down for no clear reason",
+            "I feel emotionally overwhelmed by everyday tasks",
+            "I find it difficult to feel genuinely happy or excited",
+            "I have trouble calming down when I'm upset.",
+            "I feel emotionally numb or disconnected.",
+            "I feel hopeless about the future.",
+            "I feel like I'm not good enough or constantly compare myself to others.",
+            "I feel anxious or on edge, even when nothing seems wrong.",
+            "I find it hard to express my emotions clearly.",
+            "I feel burned out or mentally exhausted",
+            "I feel left out or isolated on social media.",
+            "I compare my life to others online and feel worse about myself.",
+            "I feel pressure to always be 'on' or available digitally.",
+            "l avoid real-life social interactions in favor of online ones.",
+            "I feel more comfortable online than in person.",
+            "I feel anxious when I don't get likes or responses online.",
+            "I doomscroll or consume content that makes me feel worse.",
+            "I struggle with FOMO (fear of missing out).",
+            "I have experienced cyberbullying or negative online interactions.",
+            "I find social media negatively affects my mood.",
+            "I have trouble concentruting or focusing on tasks.",
+            "I procrastinate or avoid responsibilities even when they stress me out.",
+            "I struggle to sleep due to overthinking or screen use.",
+            "I overthink things to the point of distress.",
+            "I feel stuck or unmotivated to do things I once enjoyed",
+            "I turn to substances, food, or screen time to escape feelings",
+            "I have difficulty setting boundaries with others",
+            "I feel like I can't ask for help or open up to others",
+            "I worry excessively about school, work, or the future",
+            "I've had thoughts of self-harm, hopelessness, or wishing I didn't exist"
         ];
 
         // New quotes/messages to be shuffled and displayed
@@ -245,7 +227,7 @@
             "Wonderful work! Your awareness is a powerful tool for self-care."
         ];
 
-        const NUM_QUESTIONS_TO_USE = 25; // Define how many questions to use
+        const NUM_QUESTIONS_TO_USE = 30; // Define how many questions to use
         let questions = []; // This will hold our 25 selected and shuffled questions
         let shuffledMessages = []; // This will hold our shuffled inspirational messages
 
@@ -297,27 +279,29 @@
             }
 
             // Display mental health message using SweetAlert2 every 5 *question* pages
-            if (currentPage > 0 && currentPage % 5 === 0) {
+            if (currentPage > 0 && currentPage % 10 === 0) {
                 lastCurrentPage = currentPage;
                 // Get the current message from the shuffled messages and cycle through them
                 const randomMessage = inspirationalMessages[messageCounter % inspirationalMessages.length];
                 messageCounter++; // Increment for the next message
 
-                Swal.fire({
-                    position: 'center',
-                    icon: 'info',
-                    title: 'A Little Something For You:',
-                    text: randomMessage,
-                    showConfirmButton: true,
-                    confirmButtonText: 'Got It!'
-                });
+                // Swal.fire({
+                //     position: 'center',
+                //     icon: 'info',
+                //     title: 'A Little Something For You:',
+                //     text: randomMessage,
+                //     showConfirmButton: true,
+                //     confirmButtonText: 'Got It!'
+                // });
 
                 imagePic++;
-                if (imagePic <= 6) { // Ensure you have images 1.png through 6.png
+                if (imagePic <= 3) { // Ensure you have images 1.png through 6.png
                     let assess = document.getElementById('assess');
                     assess.setAttribute("style",
-                        `background-image: url('/${imagePic}.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;`
+                        `background-image: url('/${imagePic}.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 900px;`
                     );
+                } else if (imagePic > 3) {
+                    imagePic = 3;
                 } else {
                     imagePic = 1;
                 }
@@ -482,13 +466,16 @@
             const gaugeContainer = document.getElementById('gaugeContainer');
 
             modalWellBeingDescription.textContent = `${wellBeingStatus}`;
+            modalWellBeingDescription.setAttribute("style", "margin-bottom: 50px;");
+            gaugeContainer.setAttribute("style", "margin-bottom: 50px;");
 
             let emoji = '';
             let gaugeColors = [];
+            let finalStat = "";
 
             // Map well-being status to emoji and gauge colors
             switch (wellBeingStatus) {
-                case 'Thriving & Radiant':
+                case 'Functioning well overall':
                     emoji = '😄';
                     gaugeColors = [{
                         from: 0,
@@ -496,11 +483,12 @@
                         color: "#ef3c3e"
                     }, {
                         from: 86,
-                        to: 100,
+                        to: 120,
                         color: "#8dc63f"
                     }]; // Green
+                    finalStat = "Low Distress";
                     break;
-                case 'Balanced & Content':
+                case 'Consider self-care and social support':
                     emoji = '🙂';
                     gaugeColors = [{
                         from: 0,
@@ -508,11 +496,12 @@
                         color: "#f68b1f"
                     }, {
                         from: 71,
-                        to: 100,
+                        to: 120,
                         color: "#b0d749"
                     }]; // Light Green
+                    finalStat = "Moderate Distress";
                     break;
-                case 'Feeling A Bit Off':
+                case 'Consider talking to a counselor or therapist':
                     emoji = '😐';
                     gaugeColors = [{
                         from: 0,
@@ -520,11 +509,12 @@
                         color: "#f68b1f"
                     }, {
                         from: 56,
-                        to: 100,
+                        to: 120,
                         color: "#ffcb05"
                     }]; // Yellow
+                    finalStat = "High Distress";
                     break;
-                case 'Challenged & Seeking Calm':
+                case 'Seek Professinal Help as soon as possible':
                     emoji = '😟';
                     gaugeColors = [{
                         from: 0,
@@ -532,28 +522,22 @@
                         color: "#ef3c3e"
                     }, {
                         from: 41,
-                        to: 100,
+                        to: 120,
                         color: "#f68b1f"
                     }]; // Orange
-                    break;
-                case 'Seeking Support & Care':
-                    emoji = '😞';
-                    gaugeColors = [{
-                        from: 0,
-                        to: 100,
-                        color: "#ef3c3e"
-                    }]; // Red
                     break;
                 default:
                     emoji = '❓';
                     gaugeColors = [{
                         from: 0,
-                        to: 100,
+                        to: 120,
                         color: "#cccccc"
                     }];
+                    finalStat = "Very High Distress";
             }
 
             modalEmoji.textContent = emoji;
+            modalEmoji.setAttribute("style", "margin-top:50px;")
 
             // Clear previous gauge if it exists
             gaugeContainer.innerHTML = '';
@@ -565,7 +549,7 @@
                 min: 25, // Minimum possible score
                 max: 100, // Maximum possible score
                 title: 'Well-being Score',
-                label: wellBeingStatus,
+                label: finalStat,
                 valueMinFontSize: 24,
                 relativeGaugeSize: true, // Scale gauge size with container
                 // This section defines the color zones for the gauge.
@@ -737,8 +721,11 @@
             btnStartQ.setAttribute("style", "display:none;");
             assess.removeAttribute("style");
             assess.setAttribute("style",
-                "background-image: url('/1.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;"
+                "background-image: url('/1.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 900px; "
             );
+
+            let about = document.getElementById("about");
+            about.setAttribute("style", "display:none;");
         }
     </script>
 </body>
