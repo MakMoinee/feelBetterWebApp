@@ -101,18 +101,6 @@
                                     </select>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="feeling" class="form-label text-dark">How are you feeling
-                                        today</label>
-                                    <select class="form-select" id="feeling" required>
-                                        <option value="" disabled selected>Select your answer</option>
-                                        <option value="joyful">Joyful</option>
-                                        <option value="energetic">Energetic</option>
-                                        <option value="sad">Sad</option>
-                                        <option value="irritable">Irritable</option>
-                                        <option value="anxious">Anxious</option>
-                                    </select>
-                                </div>
                                 <div class="text-center mt-3">
                                     <button type="button" class="btn btn-primary"
                                         id="startSurveyButton">Start</button>
@@ -181,33 +169,58 @@
 
     <script src="/js/main.js"></script>
     <script>
-        // Randomized and shuffled well-being questions
-        const questions = [
-            "How often do you feel like your plate is full, but manageable?",
-            "Do you notice any physical sensations that might suggest you're overexerting yourself?",
-            "How often do you feel a sense of ease about what's ahead?",
-            "Do you find it easy to get restful sleep most nights?",
-            "How often do you feel capable of handling your daily responsibilities?",
-            "Do you find it generally easy to stay focused on your tasks?",
-            "Do you feel your daily activities are supporting your overall health?",
-            "How often do you feel like you have enough time for rest and rejuvenation?",
-            "Do you frequently find yourself letting go of concerns about things beyond your control?",
-            "How often do you feel energized after a period of rest?",
-            "Do you feel like you have enough time for personal pursuits and enjoyment?",
-            "How much do you feel comfortable engaging in social activities?",
-            "Do you feel your current pace supports your effectiveness at work/school?",
-            "Do you find it easy to transition from work/school to relaxation?",
-            "How often do you feel physically well and balanced?",
-            "Do you often feel your workload is appropriately aligned with your capacity?",
-            "Do you feel emotionally refreshed and resilient?",
-            "How often do you feel calm and at peace without a clear reason for unease?",
-            "Do you feel you've found a good rhythm between your commitments and downtime?",
-            "How often do you find yourself approaching minor issues with a sense of calm?",
-            "Do you feel more balanced and present throughout your day?",
-            "How often do you find yourself in a generally positive or neutral mood?",
-            "Do you feel your interactions with others are largely supportive and positive?",
-            "How often do you rely on practices that genuinely support your well-being (e.g., healthy habits, self-care)?",
-            "Do you find it easy to make decisions with clarity?"
+        // All 50 well-being questions
+        const allQuestions = [
+            "Do you feel tired?",
+            "Do you often feel sad or down for no specific reason?",
+            "Do you find it hard to enjoy things you used to like?",
+            "Do you feel emotionally lost or empty?",
+            "Do you feel more irritable than usual?",
+            "Do you cry more easily than before?",
+            "Do you find yourself overthinking everything?",
+            "Do you feel like you are moving or speaking more slowly than usual?",
+            "Do you experience sudden mood swings?",
+            "Do you feel hopeless about the future?",
+            "Do you feel hard to recharge?",
+            "Do you find it hard to control your worrying?",
+            "Do you feel nervous in social situations?",
+            "Do you avoid certain activities due to fear or anxiety?",
+            "Do you feel like something bad is going to happen?",
+            "Do you have physical symptoms like a racing heart, trembling, or sweating without reason?",
+            "Do you experience panic attacks or moments of intense fear?",
+            "Do you feel anxious even when you’re not under pressure?",
+            "Do you avoid responsibilities because they feel overwhelming?",
+            "Do you feel mentally lost most of the time?",
+            "Do you have trouble falling asleep?",
+            "Do you wake up frequently during the night?",
+            "Do you feel rested when you wake up?",
+            "Do you sleep much more or much less than usual?",
+            "Do you find it hard to get out of bed in the morning?",
+            "Do you find it hard to concentrate?",
+            "Do you forget things more easily lately?",
+            "Do you feel unmotivated to do daily tasks?",
+            "Do you procrastinate more than usual?",
+            "Do you struggle to make decisions?",
+            "Do you feel like a burden to others?",
+            "Do you think negatively about yourself?",
+            "Do you feel like you’re not good enough?",
+            "Do you blame yourself for things beyond your control?",
+            "Do you compare yourself negatively to others?",
+            "Do you experience frequent headaches?",
+            "Do you have stomachaches or digestion issues without a medical cause?",
+            "Do your muscles feel tense or sore even when you’re not active?",
+            "Do you feel unusually tired even after resting?",
+            "Do you experience changes in appetite (eating more or less)?",
+            "Have you withdrawn from friends or family?",
+            "Do you avoid things you used to enjoy?",
+            "Do you find yourself using alcohol, food, or substances to cope?",
+            "Do you lash out or lose your temper more easily?",
+            "Do you engage in risky behaviors or impulsive actions?",
+            "Do you often feel like life has no meaning?",
+            "Do you think about hurting yourself or others?",
+            "Do you feel like no one understands you?",
+            "Do you feel disconnected from yourself or your surroundings?",
+            "Do you wish you could just disappear or escape your life?"
         ];
 
         // Quotes/Bible verses related to mental health
@@ -228,18 +241,22 @@
             "Wonderful work! Your awareness is a powerful tool for self-care."
         ];
 
-        const questionsPerPage = 1; // One question per page
+        const NUM_QUESTIONS_TO_USE = 25; // Define how many questions to use
+        let questions = []; // This will hold our 25 selected and shuffled questions
+
         let currentPage = 0; // Start at 0 to account for initial demographic page
-        let shuffledQuestions = [...questions]; // Create a mutable copy
         let selectedAnswers = {}; // `selectedAnswers` will store answers for all questions by their original index
         let imagePic = 1;
 
-        // Shuffle questions randomly
-        function shuffleArray(arr) {
-            for (let i = arr.length - 1; i > 0; i--) {
+        // Shuffle and select a subset of questions
+        function shuffleAndSelectQuestions(arr, numToSelect) {
+            // Create a shallow copy to avoid modifying the original array
+            const shuffled = [...arr];
+            for (let i = shuffled.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
             }
+            return shuffled.slice(0, numToSelect);
         }
 
         // Render questions to the form
@@ -252,8 +269,7 @@
             container.innerHTML = ''; // Clear previous questions
             finalAffirmationContainer.innerHTML = ''; // Clear previous affirmations
 
-            const totalQuestionPages = shuffledQuestions.length; // Each question is a page
-            const totalPagesIncludingDemographics = totalQuestionPages + 1; // +1 for the initial demographics page
+            const totalQuestionPages = questions.length; // Each question is a page
 
             // Show/Hide Submit Button based on current page
             if (currentPage === totalQuestionPages) { // If it's the last question page
@@ -266,7 +282,7 @@
 
             // Display mental health message using SweetAlert2 every two *question* pages
             // This means on question page 2, 4, 6, etc.
-            if (currentPage > 0 && currentPage % 5 === 0) { // Check for even question pages (2, 4, 6...)
+            if (currentPage > 0 && currentPage % 5 === 0) { // Check for every 5th question page (5, 10, 15...)
                 const randomMessage = mentalHealthMessages[Math.floor(Math.random() * mentalHealthMessages.length)];
                 Swal.fire({
                     position: 'center',
@@ -284,40 +300,38 @@
                         `background-image: url('/${imagePic}.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;`
                     );
                 }
-
             }
 
             // Render the current question
             if (currentPage > 0 && currentPage <= totalQuestionPages) {
-                const currentQuestionIndexInShuffledArray = currentPage - 1; // Adjust for 0-indexed array
-                const qObj = {
-                    text: shuffledQuestions[currentQuestionIndexInShuffledArray],
-                    originalIndex: questions.indexOf(shuffledQuestions[currentQuestionIndexInShuffledArray])
-                };
+                const currentQuestionIndexInSelectedArray = currentPage - 1; // Adjust for 0-indexed array
+                const qText = questions[currentQuestionIndexInSelectedArray];
+                // Find the original index from `allQuestions` to maintain consistent `selectedAnswers` keys
+                const originalIndex = allQuestions.indexOf(qText);
 
                 const questionDiv = document.createElement('div');
                 questionDiv.classList.add('mb-3');
-                const questionId = `q-${qObj.originalIndex}`;
+                const questionId = `q-${originalIndex}`;
                 questionDiv.innerHTML = `
-                    <label for="${questionId}" class="form-label text-dark">${qObj.text}</label>
-                    <select class="form-select" id="${questionId}" data-question-original-index="${qObj.originalIndex}" required>
-                        <option value="" disabled selected>Select your answer</option>
-                        <option value="rarely">Rarely or Never</option>
-                        <option value="sometimes">Sometimes</option>
-                        <option value="often">Often</option>
-                        <option value="almost_always">Almost Always</option>
-                    </select>
-                `;
+                <label for="${questionId}" class="form-label text-dark">${qText}</label>
+                <select class="form-select" id="${questionId}" data-question-original-index="${originalIndex}" required>
+                    <option value="" disabled selected>Select your answer</option>
+                    <option value="rarely">Rarely or Never</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="often">Often</option>
+                    <option value="almost_always">Almost Always</option>
+                </select>
+            `;
                 container.appendChild(questionDiv);
 
                 // Set previously selected answer if available
-                if (selectedAnswers[qObj.originalIndex]) {
-                    document.getElementById(questionId).value = selectedAnswers[qObj.originalIndex];
+                if (selectedAnswers[originalIndex]) {
+                    document.getElementById(questionId).value = selectedAnswers[originalIndex];
                 }
 
                 // Add event listener to save answers
                 document.getElementById(questionId).addEventListener('change', (event) => {
-                    selectedAnswers[qObj.originalIndex] = event.target.value;
+                    selectedAnswers[originalIndex] = event.target.value;
                 });
             } else if (currentPage === 0) {
                 // This is the initial demographic page, questionsContainer should be empty
@@ -368,9 +382,8 @@
                 if (currentPage === 0) { // On demographics page
                     const ageGroup = document.getElementById('ageGroup').value;
                     const gender = document.getElementById('gender').value;
-                    const feeling = document.getElementById('feeling').value;
 
-                    if (!ageGroup || !gender || !feeling) {
+                    if (!ageGroup || !gender) {
                         Swal.fire({
                             icon: 'warning',
                             title: 'Oops!',
@@ -383,7 +396,11 @@
                     document.getElementById('initialQuestions').style.display = 'none';
                     document.getElementById('wellBeingQuestions').style.display = 'block';
                 } else { // On a question page
-                    const currentQuestionOriginalIndex = questions.indexOf(shuffledQuestions[currentPage - 1]);
+                    const currentQuestionText = questions[currentPage -
+                    1]; // Get the question text from the selected questions array
+                    const currentQuestionOriginalIndex = allQuestions.indexOf(
+                    currentQuestionText); // Find its original index
+
                     if (!selectedAnswers[currentQuestionOriginalIndex]) {
                         Swal.fire({
                             icon: 'warning',
@@ -399,7 +416,6 @@
             });
             paginationContainer.appendChild(nextButton);
         }
-
 
         // Display final affirmation
         function displayFinalAffirmation() {
@@ -424,14 +440,14 @@
                     icon: 'success',
                     title: message || 'Successfully Added Response',
                     showConfirmButton: false,
-                    timer: 1500 // Increased timer slightly for clarity
+                    timer: 1500
                 });
             } else {
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
                     title: message,
-                    showConfirmButton: true, // Keep confirm button for errors
+                    showConfirmButton: true,
                     confirmButtonText: 'OK'
                 });
             }
@@ -567,7 +583,6 @@
             resultsModal.show();
         }
 
-
         // Form submission handling
         document.getElementById('stressForm').addEventListener('submit', async function(event) {
             event.preventDefault(); // Prevent default form submission
@@ -584,9 +599,9 @@
                 return;
             }
 
-            // Check if all paginated questions have been answered
-            const allPaginatedQuestionsAnswered = Object.keys(selectedAnswers).length === questions.length;
-            if (!allPaginatedQuestionsAnswered) {
+            // Check if all selected questions have been answered
+            const allSelectedQuestionsAnswered = Object.keys(selectedAnswers).length === questions.length;
+            if (!allSelectedQuestionsAnswered) {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Incomplete!',
@@ -603,8 +618,8 @@
                 gender: gender,
                 feeling: feeling,
                 wellBeingAnswers: Object.keys(selectedAnswers).map(originalIndex => ({
-                    question: questions[
-                        originalIndex], // Use original `questions` array for text
+                    question: allQuestions[
+                        originalIndex], // Use original `allQuestions` array for text
                     answer: selectedAnswers[originalIndex]
                 }))
             };
@@ -635,7 +650,8 @@
                     // Clear answers and reset to first page after successful submission
                     selectedAnswers = {}; // Clear all stored answers
                     currentPage = 0; // Reset to the initial demographics page
-                    shuffleArray(shuffledQuestions); // Reshuffle for a fresh start
+                    questions = shuffleAndSelectQuestions(allQuestions,
+                    NUM_QUESTIONS_TO_USE); // Reshuffle and re-select for a fresh start
                     document.getElementById('initialQuestions').style.display = 'block'; // Show demographics
                     document.getElementById('wellBeingQuestions').style.display = 'none'; // Hide questions
                     form.reset(); // Reset form fields
@@ -663,13 +679,11 @@
         document.getElementById('startSurveyButton').addEventListener('click', () => {
             const ageGroup = document.getElementById('ageGroup').value;
             const gender = document.getElementById('gender').value;
-            const feeling = document.getElementById('feeling').value;
 
-            if (!ageGroup || !gender || !feeling) {
+            if (!ageGroup || !gender ) { // Check feeling as well
                 // Add Bootstrap validation styles to the demographic fields
                 document.getElementById('ageGroup').reportValidity();
                 document.getElementById('gender').reportValidity();
-                document.getElementById('feeling').reportValidity();
                 Swal.fire({
                     icon: 'warning',
                     title: 'Oops!',
@@ -686,10 +700,10 @@
             renderQuestions();
         });
 
-
         // Initialize the form on page load
         window.onload = function() {
-            shuffleArray(shuffledQuestions); // Shuffle only once on load
+            questions = shuffleAndSelectQuestions(allQuestions,
+            NUM_QUESTIONS_TO_USE); // Shuffle and select 25 questions on load
             renderQuestions(); // Render the initial state (demographics)
         }
 
@@ -700,7 +714,7 @@
             assess.removeAttribute("style");
             assess.setAttribute("style",
                 "background-image: url('/1.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;"
-                );
+            );
         }
     </script>
 </body>
