@@ -388,19 +388,23 @@
             deleteForm.action = `/admin/${id}`;
         }
 
+
         function showResultsModal(totalScore, wellBeingStatus, currentFeeling) {
             const modalWellBeingDescription = document.getElementById('modalWellBeingDescription');
             const modalEmoji = document.getElementById('modalEmoji');
             const gaugeContainer = document.getElementById('gaugeContainer');
 
             modalWellBeingDescription.textContent = `${wellBeingStatus}`;
+            modalWellBeingDescription.setAttribute("style", "margin-bottom: 50px;");
+            gaugeContainer.setAttribute("style", "margin-bottom: 50px;");
 
             let emoji = '';
             let gaugeColors = [];
+            let finalStat = "";
 
             // Map well-being status to emoji and gauge colors
             switch (wellBeingStatus) {
-                case 'Thriving & Radiant':
+                case 'Functioning well overall':
                     emoji = '😄';
                     gaugeColors = [{
                         from: 0,
@@ -408,11 +412,12 @@
                         color: "#ef3c3e"
                     }, {
                         from: 86,
-                        to: 100,
+                        to: 120,
                         color: "#8dc63f"
                     }]; // Green
+                    finalStat = "Low Distress";
                     break;
-                case 'Balanced & Content':
+                case 'Consider self-care and social support':
                     emoji = '🙂';
                     gaugeColors = [{
                         from: 0,
@@ -420,11 +425,12 @@
                         color: "#f68b1f"
                     }, {
                         from: 71,
-                        to: 100,
+                        to: 120,
                         color: "#b0d749"
                     }]; // Light Green
+                    finalStat = "Moderate Distress";
                     break;
-                case 'Feeling A Bit Off':
+                case 'Consider talking to a counselor or therapist':
                     emoji = '😐';
                     gaugeColors = [{
                         from: 0,
@@ -432,11 +438,12 @@
                         color: "#f68b1f"
                     }, {
                         from: 56,
-                        to: 100,
+                        to: 120,
                         color: "#ffcb05"
                     }]; // Yellow
+                    finalStat = "High Distress";
                     break;
-                case 'Challenged & Seeking Calm':
+                case 'Seek Professinal Help as soon as possible':
                     emoji = '😟';
                     gaugeColors = [{
                         from: 0,
@@ -444,28 +451,22 @@
                         color: "#ef3c3e"
                     }, {
                         from: 41,
-                        to: 100,
+                        to: 120,
                         color: "#f68b1f"
                     }]; // Orange
-                    break;
-                case 'Seeking Support & Care':
-                    emoji = '😞';
-                    gaugeColors = [{
-                        from: 0,
-                        to: 100,
-                        color: "#ef3c3e"
-                    }]; // Red
                     break;
                 default:
                     emoji = '❓';
                     gaugeColors = [{
                         from: 0,
-                        to: 100,
+                        to: 120,
                         color: "#cccccc"
                     }];
+                    finalStat = "Very High Distress";
             }
 
             modalEmoji.textContent = emoji;
+            modalEmoji.setAttribute("style", "margin-top:50px;")
 
             // Clear previous gauge if it exists
             gaugeContainer.innerHTML = '';
@@ -474,10 +475,10 @@
             new JustGage({
                 id: 'gaugeContainer', // ID of the div where the gauge will be rendered
                 value: totalScore,
-                min: 25, // Minimum possible score
-                max: 100, // Maximum possible score
+                min: 0, // Minimum possible score
+                max: 120, // Maximum possible score
                 title: 'Well-being Score',
-                label: wellBeingStatus,
+                label: finalStat,
                 valueMinFontSize: 24,
                 relativeGaugeSize: true, // Scale gauge size with container
                 // This section defines the color zones for the gauge.
@@ -501,7 +502,7 @@
                     color: "#b0d749" // Light Green for "Balanced & Content"
                 }, {
                     from: 86,
-                    to: 100,
+                    to: 120,
                     color: "#8dc63f" // Dark Green for "Thriving & Radiant"
                 }],
                 // Other gauge options for aesthetics
@@ -516,6 +517,7 @@
             const resultsModal = new bootstrap.Modal(document.getElementById('resultsModal'));
             resultsModal.show();
         }
+
     </script>
 
     @if (session()->pull('successDelete'))

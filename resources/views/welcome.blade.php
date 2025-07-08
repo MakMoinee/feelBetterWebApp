@@ -546,8 +546,8 @@
             new JustGage({
                 id: 'gaugeContainer', // ID of the div where the gauge will be rendered
                 value: totalScore,
-                min: 25, // Minimum possible score
-                max: 100, // Maximum possible score
+                min: 0, // Minimum possible score
+                max: 120, // Maximum possible score
                 title: 'Well-being Score',
                 label: finalStat,
                 valueMinFontSize: 24,
