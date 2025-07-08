@@ -28,39 +28,67 @@ class AssessmentController extends Controller
      */
     public function store(Request $request)
     {
+
         $newAssessment = new Assessments();
         $newAssessment->ageGroup = $request->ageGroup;
         $newAssessment->gender = $request->gender;
-        $newAssessment->gender = $request->gender;
-        $newAssessment->feeling = $request->feeling;
+        // Corrected a typo here: previously $newAssessment->gender = $request->gender; appeared twice
+        $newAssessment->feeling = $request->feeling ?? "none"; // Using null coalescing operator for cleaner default
+
         $jsonString = json_encode($request->wellBeingAnswers);
 
-        $originalQuestions = [
-            "How often do you feel like your plate is full, but manageable?",
-            "Do you notice any physical sensations that might suggest you're overexerting yourself?", // This question is inverted for scoring
-            "How often do you feel a sense of ease about what's ahead?",
-            "Do you find it easy to get restful sleep most nights?",
-            "How often do you feel capable of handling your daily responsibilities?",
-            "Do you find it generally easy to stay focused on your tasks?",
-            "Do you feel your daily activities are supporting your overall health?",
-            "How often do you feel like you have enough time for rest and rejuvenation?",
-            "Do you frequently find yourself letting go of concerns about things beyond your control?",
-            "How often do you feel energized after a period of rest?",
-            "Do you feel like you have enough time for personal pursuits and enjoyment?",
-            "How much do you feel comfortable engaging in social activities?",
-            "Do you feel your current pace supports your effectiveness at work/school?",
-            "Do you find it easy to transition from work/school to relaxation?",
-            "How often do you feel physically well and balanced?",
-            "Do you often feel your workload is appropriately aligned with your capacity?",
-            "Do you feel emotionally refreshed and resilient?",
-            "How often do you feel calm and at peace without a clear reason for unease?",
-            "Do you feel you've found a good rhythm between your commitments and downtime?",
-            "How often do you find yourself approaching minor issues with a sense of calm?",
-            "Do you feel more balanced and present throughout your day?",
-            "How often do you find yourself in a generally positive or neutral mood?",
-            "Do you feel your interactions with others are largely supportive and positive?",
-            "How often do you rely on practices that genuinely support your well-being (e.g., healthy habits, self-care)?",
-            "Do you find it easy to make decisions with clarity?"
+        // All 50 original questions (same as in your JavaScript)
+        $allOriginalQuestions = [
+            "Do you feel tired?",
+            "Do you often feel sad or down for no specific reason?",
+            "Do you find it hard to enjoy things you used to like?",
+            "Do you feel emotionally lost or empty?",
+            "Do you feel more irritable than usual?",
+            "Do you cry more easily than before?",
+            "Do you find yourself overthinking everything?",
+            "Do you feel like you are moving or speaking more slowly than usual?",
+            "Do you experience sudden mood swings?",
+            "Do you feel hopeless about the future?",
+            "Do you feel hard to recharge?",
+            "Do you find it hard to control your worrying?",
+            "Do you feel nervous in social situations?",
+            "Do you avoid certain activities due to fear or anxiety?",
+            "Do you feel like something bad is going to happen?",
+            "Do you have physical symptoms like a racing heart, trembling, or sweating without reason?",
+            "Do you experience panic attacks or moments of intense fear?",
+            "Do you feel anxious even when you’re not under pressure?",
+            "Do you avoid responsibilities because they feel overwhelming?",
+            "Do you feel mentally lost most of the time?",
+            "Do you have trouble falling asleep?",
+            "Do you wake up frequently during the night?",
+            "Do you feel rested when you wake up?",
+            "Do you sleep much more or much less than usual?",
+            "Do you find it hard to get out of bed in the morning?",
+            "Do you find it hard to concentrate?",
+            "Do you forget things more easily lately?",
+            "Do you feel unmotivated to do daily tasks?",
+            "Do you procrastinate more than usual?",
+            "Do you struggle to make decisions?",
+            "Do you feel like a burden to others?",
+            "Do you think negatively about yourself?",
+            "Do you feel like you’re not good enough?",
+            "Do you blame yourself for things beyond your control?",
+            "Do you compare yourself negatively to others?",
+            "Do you experience frequent headaches?",
+            "Do you have stomachaches or digestion issues without a medical cause?",
+            "Do your muscles feel tense or sore even when you’re not active?",
+            "Do you feel unusually tired even after resting?",
+            "Do you experience changes in appetite (eating more or less)?",
+            "Have you withdrawn from friends or family?",
+            "Do you avoid things you used to enjoy?",
+            "Do you find yourself using alcohol, food, or substances to cope?",
+            "Do you lash out or lose your temper more easily?",
+            "Do you engage in risky behaviors or impulsive actions?",
+            "Do you often feel like life has no meaning?",
+            "Do you think about hurting yourself or others?",
+            "Do you feel like no one understands you?",
+            "Do you feel disconnected from yourself or your surroundings?",
+            "Do you wish you could just disappear or escape your life?"
         ];
 
         // Define the scoring for frequency options (standard)
@@ -72,14 +100,64 @@ class AssessmentController extends Controller
         ];
 
         // Define the inverse questions (where a higher frequency implies lower well-being)
+        // Ensure this list is comprehensive for all questions where higher frequency means worse well-being
         $inverseQuestions = [
-            "Do you notice any physical sensations that might suggest you're overexerting yourself?",
+            "Do you feel tired?",
+            "Do you often feel sad or down for no specific reason?",
+            "Do you find it hard to enjoy things you used to like?",
+            "Do you feel emotionally lost or empty?",
+            "Do you feel more irritable than usual?",
+            "Do you cry more easily than before?",
+            "Do you find yourself overthinking everything?",
+            "Do you feel like you are moving or speaking more slowly than usual?",
+            "Do you experience sudden mood swings?",
+            "Do you feel hopeless about the future?",
+            "Do you feel hard to recharge?",
+            "Do you find it hard to control your worrying?",
+            "Do you feel nervous in social situations?",
+            "Do you avoid certain activities due to fear or anxiety?",
+            "Do you feel like something bad is going to happen?",
+            "Do you have physical symptoms like a racing heart, trembling, or sweating without reason?",
+            "Do you experience panic attacks or moments of intense fear?",
+            "Do you feel anxious even when you’re not under pressure?",
+            "Do you avoid responsibilities because they feel overwhelming?",
+            "Do you feel mentally lost most of the time?",
+            "Do you have trouble falling asleep?",
+            "Do you wake up frequently during the night?",
+            "Do you sleep much more or much less than usual?",
+            "Do you find it hard to get out of bed in the morning?",
+            "Do you find it hard to concentrate?",
+            "Do you forget things more easily lately?",
+            "Do you feel unmotivated to do daily tasks?",
+            "Do you procrastinate more than usual?",
+            "Do you struggle to make decisions?",
+            "Do you feel like a burden to others?",
+            "Do you think negatively about yourself?",
+            "Do you feel like you’re not good enough?",
+            "Do you blame yourself for things beyond your control?",
+            "Do you compare yourself negatively to others?",
+            "Do you experience frequent headaches?",
+            "Do you have stomachaches or digestion issues without a medical cause?",
+            "Do your muscles feel tense or sore even when you’re not active?",
+            "Do you feel unusually tired even after resting?",
+            "Do you experience changes in appetite (eating more or less)?",
+            "Have you withdrawn from friends or family?",
+            "Do you avoid things you used to enjoy?",
+            "Do you find yourself using alcohol, food, or substances to cope?",
+            "Do you lash out or lose your temper more easily?",
+            "Do you engage in risky behaviors or impulsive actions?",
+            "Do you often feel like life has no meaning?",
+            "Do you think about hurting yourself or others?",
+            "Do you feel like no one understands you?",
+            "Do you feel disconnected from yourself or your surroundings?",
+            "Do you wish you could just disappear or escape your life?"
         ];
 
 
         $wellBeingAnswers = $request->wellBeingAnswers;
 
         $totalWellBeingScore = 0;
+        $numberOfQuestionsAnswered = count($wellBeingAnswers); // This will be 25 based on frontend logic
 
         foreach ($wellBeingAnswers as $answerEntry) {
             $questionText = $answerEntry['question'];
@@ -89,6 +167,9 @@ class AssessmentController extends Controller
             $score = $scoreMapping[$answerValue];
 
             // If it's an inverse question, reverse the score
+            // We use allOriginalQuestions as the reference point for `in_array`
+            // since the `questionText` coming from the frontend is directly from the
+            // `allQuestions` array in JavaScript (which is the same as `$allOriginalQuestions` here).
             if (in_array($questionText, $inverseQuestions)) {
                 $score = (5 - $score); // Converts 1->4, 2->3, 3->2, 4->1
             }
@@ -96,18 +177,23 @@ class AssessmentController extends Controller
             $totalWellBeingScore += $score;
         }
 
-        // Determine the well-being description based on the total score (25 questions * 4 max score = 100 max)
-        $wellBeingDescription = 'Undetermined'; // Default in case no range is hit or an issue occurs
+        // Calculate the maximum possible score for the answered questions
+        // Since each question has a max score of 4, the max score is 25 * 4 = 100
+        $maxPossibleScore = $numberOfQuestionsAnswered * 4;
 
-        if ($totalWellBeingScore >= 86) {
+        // Determine the well-being description based on the total score
+        // The ranges need to be adjusted for a max score of 100 (25 questions * 4 max score)
+        $wellBeingDescription = 'Undetermined'; // Default
+
+        if ($totalWellBeingScore >= 86) { // 86-100 (Thriving)
             $wellBeingDescription = 'Thriving & Radiant';
-        } elseif ($totalWellBeingScore >= 71) {
+        } elseif ($totalWellBeingScore >= 71) { // 71-85 (Balanced)
             $wellBeingDescription = 'Balanced & Content';
-        } elseif ($totalWellBeingScore >= 56) {
+        } elseif ($totalWellBeingScore >= 56) { // 56-70 (Feeling A Bit Off)
             $wellBeingDescription = 'Feeling A Bit Off';
-        } elseif ($totalWellBeingScore >= 41) {
+        } elseif ($totalWellBeingScore >= 41) { // 41-55 (Challenged)
             $wellBeingDescription = 'Challenged & Seeking Calm';
-        } else { // Scores from 25 to 40
+        } else { // 25-40 (Seeking Support & Care)
             $wellBeingDescription = 'Seeking Support & Care';
         }
 
@@ -116,6 +202,7 @@ class AssessmentController extends Controller
         $newAssessment->result = $wellBeingDescription;
         $newAssessment->score = $totalWellBeingScore;
         $isSave = $newAssessment->save();
+
         if ($isSave) {
             return response()->json([
                 'message' => 'Assessment submitted successfully!',
@@ -126,7 +213,7 @@ class AssessmentController extends Controller
                 ]
             ], 200);
         } else {
-            return response()->json(["error" => true], 500);
+            return response()->json(["error" => true, 'message' => 'Failed to save assessment.'], 500);
         }
     }
 

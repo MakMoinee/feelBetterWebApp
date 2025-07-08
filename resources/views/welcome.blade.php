@@ -150,7 +150,8 @@
                     <p class="text-muted small">Score range: 25 (lowest) to 100 (highest)</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="window.location.href='/'">Close</button>
                 </div>
             </div>
         </div>
@@ -223,15 +224,18 @@
             "Do you wish you could just disappear or escape your life?"
         ];
 
-        // Quotes/Bible verses related to mental health
-        const mentalHealthMessages = [
-            "The mind is everything. What you think you become. – Buddha",
-            "You are not a drop in the ocean. You are the entire ocean in a drop. – Rumi",
-            "And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus. – Philippians 4:7",
-            "Be kind, for everyone you meet is fighting a harder battle. – Plato",
-            "For God has not given us a spirit of fear, but of power and of love and of a sound mind. – 2 Timothy 1:7",
-            "It's okay not to be okay. Just don't give up. – Unknown",
-            "Come to me, all you who are weary and burdened, and I will give you rest. – Matthew 11:28"
+        // New quotes/messages to be shuffled and displayed
+        const inspirationalMessages = [
+            "You don’t have to control your thoughts. You just have to stop letting them control you. — Dan Millman",
+            "Your present circumstances don’t determine where you can go; they merely determine where you start. — Nido Qubein",
+            "Start where you are. Use what you have. Do what you can. — Arthur Ashe",
+            "Just when the caterpillar thought the world was over, it became a butterfly. — Anonymous proverb",
+            "You are stronger than you think, and you have survived everything you’ve been through. — Unknown",
+            "It’s okay to rest. Resting doesn’t mean you’re giving up — it means you’re refueling.",
+            "Your thoughts are not facts. You can observe them without believing every one.",
+            "You’ve gotten through difficult moments before — give yourself credit for that.",
+            "There is no shame in needing help. Everyone has tough moments — asking is brave.",
+            "Right now, just being here and trying is enough."
         ];
 
         const finalAffirmations = [
@@ -243,10 +247,14 @@
 
         const NUM_QUESTIONS_TO_USE = 25; // Define how many questions to use
         let questions = []; // This will hold our 25 selected and shuffled questions
+        let shuffledMessages = []; // This will hold our shuffled inspirational messages
 
         let currentPage = 0; // Start at 0 to account for initial demographic page
+        let lastCurrentPage = 0;
         let selectedAnswers = {}; // `selectedAnswers` will store answers for all questions by their original index
         let imagePic = 1;
+        let lastImagePic = 1;
+        let messageCounter = 0; // To cycle through shuffledMessages
 
         // Shuffle and select a subset of questions
         function shuffleAndSelectQuestions(arr, numToSelect) {
@@ -257,6 +265,14 @@
                 [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
             }
             return shuffled.slice(0, numToSelect);
+        }
+
+        // Generic shuffle function
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
         }
 
         // Render questions to the form
@@ -280,10 +296,13 @@
                 paginationContainer.style.display = 'flex'; // Show pagination for questions
             }
 
-            // Display mental health message using SweetAlert2 every two *question* pages
-            // This means on question page 2, 4, 6, etc.
-            if (currentPage > 0 && currentPage % 5 === 0) { // Check for every 5th question page (5, 10, 15...)
-                const randomMessage = mentalHealthMessages[Math.floor(Math.random() * mentalHealthMessages.length)];
+            // Display mental health message using SweetAlert2 every 5 *question* pages
+            if (currentPage > 0 && currentPage % 5 === 0) {
+                lastCurrentPage = currentPage;
+                // Get the current message from the shuffled messages and cycle through them
+                const randomMessage = inspirationalMessages[messageCounter % inspirationalMessages.length];
+                messageCounter++; // Increment for the next message
+
                 Swal.fire({
                     position: 'center',
                     icon: 'info',
@@ -294,13 +313,16 @@
                 });
 
                 imagePic++;
-                if (imagePic <= 6) {
+                if (imagePic <= 6) { // Ensure you have images 1.png through 6.png
                     let assess = document.getElementById('assess');
                     assess.setAttribute("style",
                         `background-image: url('/${imagePic}.png');  background-size: cover; background-repeat: no-repeat; background-position: center; width: 100%; height: 1200px;`
                     );
+                } else {
+                    imagePic = 1;
                 }
             }
+
 
             // Render the current question
             if (currentPage > 0 && currentPage <= totalQuestionPages) {
@@ -397,9 +419,9 @@
                     document.getElementById('wellBeingQuestions').style.display = 'block';
                 } else { // On a question page
                     const currentQuestionText = questions[currentPage -
-                    1]; // Get the question text from the selected questions array
+                        1]; // Get the question text from the selected questions array
                     const currentQuestionOriginalIndex = allQuestions.indexOf(
-                    currentQuestionText); // Find its original index
+                        currentQuestionText); // Find its original index
 
                     if (!selectedAnswers[currentQuestionOriginalIndex]) {
                         Swal.fire({
@@ -591,9 +613,8 @@
             // Validate form to ensure all initial required fields (age, gender, feeling) are filled
             const ageGroup = document.getElementById('ageGroup').value;
             const gender = document.getElementById('gender').value;
-            const feeling = document.getElementById('feeling').value;
 
-            if (!ageGroup || !gender || !feeling) {
+            if (!ageGroup || !gender) {
                 form.classList.add('was-validated'); // Add Bootstrap validation styles
                 showMessage("Please fill out your age group, gender, and how you're feeling.", 'error');
                 return;
@@ -616,7 +637,7 @@
             const data = {
                 ageGroup: ageGroup,
                 gender: gender,
-                feeling: feeling,
+                feeling: "",
                 wellBeingAnswers: Object.keys(selectedAnswers).map(originalIndex => ({
                     question: allQuestions[
                         originalIndex], // Use original `allQuestions` array for text
@@ -651,7 +672,9 @@
                     selectedAnswers = {}; // Clear all stored answers
                     currentPage = 0; // Reset to the initial demographics page
                     questions = shuffleAndSelectQuestions(allQuestions,
-                    NUM_QUESTIONS_TO_USE); // Reshuffle and re-select for a fresh start
+                        NUM_QUESTIONS_TO_USE); // Reshuffle and re-select questions for a fresh start
+                    shuffleArray(inspirationalMessages); // Reshuffle the inspirational messages
+                    messageCounter = 0; // Reset message counter
                     document.getElementById('initialQuestions').style.display = 'block'; // Show demographics
                     document.getElementById('wellBeingQuestions').style.display = 'none'; // Hide questions
                     form.reset(); // Reset form fields
@@ -680,7 +703,7 @@
             const ageGroup = document.getElementById('ageGroup').value;
             const gender = document.getElementById('gender').value;
 
-            if (!ageGroup || !gender ) { // Check feeling as well
+            if (!ageGroup || !gender) {
                 // Add Bootstrap validation styles to the demographic fields
                 document.getElementById('ageGroup').reportValidity();
                 document.getElementById('gender').reportValidity();
@@ -703,7 +726,8 @@
         // Initialize the form on page load
         window.onload = function() {
             questions = shuffleAndSelectQuestions(allQuestions,
-            NUM_QUESTIONS_TO_USE); // Shuffle and select 25 questions on load
+                NUM_QUESTIONS_TO_USE); // Shuffle and select 25 questions on load
+            shuffleArray(inspirationalMessages); // Shuffle the inspirational messages on load
             renderQuestions(); // Render the initial state (demographics)
         }
 
